@@ -18,6 +18,7 @@ steps:
     arguments: >-
       "$(Owner)"
       "$(Repo)"
+      "$(TokenGithub)"
       # "$(FromBranch)"
       # "$(ToBranch)"
       # "$(PullRequestTitle)"
