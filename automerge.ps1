@@ -77,5 +77,5 @@ Write-Error "There are conflicts and needs to be resolved"
 
 }
 
-
+curl -s -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/[$Owner]/[$Repo]/git/refs/heads/feature_main
 
