@@ -31,7 +31,7 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
 
-curl -b -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/[$Owner]/[$Repo]/git/refs/heads/feature_main
+curl -b -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 
 $PullRequestBody = @{
