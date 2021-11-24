@@ -18,7 +18,7 @@ steps:
     arguments: >-
       "$(Owner)"
       "$(Repo)"
-      "$(FromBranch)"
-      "$(ToBranch)"
-      "$(PullRequestTitle)"
-      "$(Reviewers)"
+      # "$(FromBranch)"
+      # "$(ToBranch)"
+      # "$(PullRequestTitle)"
+      # "$(Reviewers)"
