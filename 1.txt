@@ -1,6 +1,6 @@
 first commit 1
 second commit 2
-third commit
+third commit 3
 fourth commit
 fifth commit
 sixth
