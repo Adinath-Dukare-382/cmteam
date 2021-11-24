@@ -13,9 +13,6 @@ param(
   [string]$Reviewers
 )
 
-
-
-
 #Reference 
 # https://docs.github.com/en/rest/reference/pulls
 
@@ -30,8 +27,6 @@ $base64token = [System.Convert]::ToBase64String([char[]]$Token);
 $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
-
-curl -b -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 
 $PullRequestBody = @{
@@ -55,9 +50,7 @@ $ReviewerNamesBody = @{
 
 
 #create pull request
-#https://github.com/Adinath-Dukare-382/cmteam/pulls
-#$uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-$uri = "https://github.com/$Owner/$Repo/pulls"
+$uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
 $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
 Start-Sleep -Seconds 10
 #get pull request details
