@@ -22,15 +22,15 @@ param(
 
 #get branches
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/main
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
-#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/main
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/git/refs/heads/main
 
 #getrepo
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 #delete branch
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/octocat/hello-world/git/refs/REF
+#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/octocat/hello-world/git/refs/REF
 
 
 #get a branch protection
@@ -47,7 +47,7 @@ curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.co
 #delete a branch protection rule
 #curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
   
-curl -X DELETE -u Adinath-Dukare-382: $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
+#curl -X DELETE -u Adinath-Dukare-382: $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 # #Reference 
 # # https://docs.github.com/en/rest/reference/pulls
