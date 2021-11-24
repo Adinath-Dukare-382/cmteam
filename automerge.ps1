@@ -14,6 +14,24 @@ param(
 #   [string]$Reviewers
 )
 
+ $Token = $env:GithubToken_ENV_VAR
+
+
+
+#get branches
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
+
+#getrepo
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
+ 
+#delete security
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/automated-security-fixes
+
+#delte branch
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/feature_enable
+
+curl -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/[$Owner]/[$Repo]/git/refs/heads/feature_main
+
 # #Reference 
 # # https://docs.github.com/en/rest/reference/pulls
 
@@ -58,15 +76,6 @@ param(
 # #get pull request details
 # $uri = $createpullrequest.url
 # $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
-
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
-
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
-  
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/automated-security-fixes
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/feature_enable
-
-
 
 # #check if the code is mergeable (there are no conflicts)
 # if(($PullRequestDetails.mergeable -eq "True"))
