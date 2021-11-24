@@ -32,13 +32,13 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 
 
 #delete security
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
+#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 #delte branch
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
+#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 
 #delete a branch protection rule
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
+#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
   
 #curl -X DELETE -u 'adinath.dukare@allscripts.com': $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
