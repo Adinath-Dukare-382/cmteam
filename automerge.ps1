@@ -25,6 +25,7 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/main
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/git/refs/heads/main
+curl -X DELETE -u Adinath-Dukare-382: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 https://api.github.com/repos/$Owner/$Repo
 
 #getrepo
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
