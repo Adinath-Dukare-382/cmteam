@@ -61,6 +61,7 @@ param(
 
 
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/$Owner/$Repo/automated-security-fixes"
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 
 
