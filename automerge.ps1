@@ -24,14 +24,14 @@ param(
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/main
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
+#curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 
 #getrepo
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 #get a branch protection
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection/enforce_admins
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection/enforce_admins
 
 
 #delete security
@@ -43,7 +43,7 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 #delete a branch protection rule
 #curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
   
-#curl -X DELETE -u 'adinath.dukare@allscripts.com': $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
+curl -X DELETE -u Adinath-Dukare-382: $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 # #Reference 
 # # https://docs.github.com/en/rest/reference/pulls
