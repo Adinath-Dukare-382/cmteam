@@ -13,6 +13,9 @@ param(
   [string]$Reviewers
 )
 
+
+
+
 #Reference 
 # https://docs.github.com/en/rest/reference/pulls
 
@@ -27,6 +30,8 @@ $base64token = [System.Convert]::ToBase64String([char[]]$Token);
 $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
+
+curl -s -X DELETE -u ['Adinath-Dukare-382']:[$Token] https://api.github.com/repos/[$Owner]/[$Repo]/git/refs/heads/feature_main
 
 
 $PullRequestBody = @{
