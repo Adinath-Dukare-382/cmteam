@@ -3,7 +3,9 @@ param(
   [parameter(Mandatory=$True)] 
   [string]$Owner,
   [parameter(Mandatory=$True)] 
-  [string]$Repo
+  [string]$Repo,
+  [parameter(Mandatory=$True)] 
+  [string]$TokenGithub
 #   [parameter(Mandatory=$True)] 
 #   [string]$FromBranch,
 #   [parameter(Mandatory=$True)] 
@@ -25,12 +27,12 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
  
 #delete security
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/automated-security-fixes
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 #delte branch
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 
-curl -X DELETE -u 'Adinath-Dukare-382':'$Token' https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
+curl -X DELETE -u 'adinath.dukare@allscripts.com': $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 # #Reference 
 # # https://docs.github.com/en/rest/reference/pulls
