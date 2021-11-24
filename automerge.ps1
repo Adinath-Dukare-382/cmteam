@@ -57,7 +57,7 @@ $ReviewerNamesBody = @{
 #create pull request
 #https://github.com/Adinath-Dukare-382/cmteam/pulls
 #$uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-$$uri = "https://github.com/$Owner/$Repo/pulls"
+$uri = "https://github.com/$Owner/$Repo/pulls"
 $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
 Start-Sleep -Seconds 10
 #get pull request details
