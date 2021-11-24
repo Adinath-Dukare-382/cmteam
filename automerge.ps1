@@ -30,7 +30,7 @@ curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.co
 #delte branch
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/feature_enable
 
-curl -X DELETE -u 'Adinath-Dukare-382':$Token https://api.github.com/repos/[$Owner]/[$Repo]/git/refs/heads/feature_main
+curl -X DELETE -u 'Adinath-Dukare-382':'$Token' https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
 # #Reference 
 # # https://docs.github.com/en/rest/reference/pulls
