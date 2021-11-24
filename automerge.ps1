@@ -33,7 +33,7 @@ curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.co
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 
 #delete a branch protection rule
-curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Ownert/$Repo/feature_main/protection
+curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/feature_main/protection
   
 #curl -X DELETE -u 'adinath.dukare@allscripts.com': $TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/feature_main
 
