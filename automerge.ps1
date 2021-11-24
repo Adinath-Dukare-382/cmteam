@@ -59,6 +59,7 @@ param(
 # $uri = $createpullrequest.url
 # $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
 
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
 
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/$Owner/$Repo/automated-security-fixes"
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
