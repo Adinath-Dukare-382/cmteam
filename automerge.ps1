@@ -27,7 +27,9 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
 
 #get a branch protection
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/protection
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/FEATURE_MAIN/protection
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_main/enforce_admins
+
 
 #delete security
 curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo
