@@ -1,7 +1,7 @@
 first commit 1
 second commit 2
 third commit 3
-fourth commit
+fourth commit 4
 fifth commit
 sixth
 seventh
