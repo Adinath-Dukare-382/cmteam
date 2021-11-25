@@ -8,13 +8,12 @@ param(
   [parameter(Mandatory=$True)]
   [string]$Version
 )
-write-Host $Version
 
-$PullRequest = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | Convertfrom-Json
+$PullRequest = curl -X GET -u $Owner:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls | Convertfrom-Json
 $prurl = $PullRequest.url
 
-$prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $prurl | ConvertFrom-Json
+$prinfo = curl -X GET -u $Owner:$TokenGithub $prurl | ConvertFrom-Json
 $branch = $prinfo.head.ref
-$branch
 
-curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/git/refs/heads/$branch
+curl -X DELETE -u $Owner:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
+write-host "$branch be deleted"
