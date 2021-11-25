@@ -29,5 +29,5 @@ steps:
     script: |
       git config --global user.email "adinath.dukare@allscripts.com"
       git config --global user.name "Adinath-Dukare-382"
-      git branch --merged | grep -v \* | xargs
+      git branch --merged | grep -v main | xargs
       
