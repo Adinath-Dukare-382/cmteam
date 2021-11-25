@@ -16,6 +16,7 @@ steps:
     targetType: 'inline'
     script: |
       write-Host $(Build.DefinitionVersion)
+      write-Host $(Build.SourceVersion)
       write-Host $(Build.Repository.Name)
       write-Host $env:System.PullRequest.PullRequestNumber
 - task: PowerShell@2
