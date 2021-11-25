@@ -18,7 +18,9 @@ $output.url
 
 $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/pulls/3 | ConvertFrom-Json
 $prinfo
-$prinfo.head.ref
+$branch = $prinfo.head.ref
+
+curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/github/git/refs/heads/$branch
 
 write-host ---------------------------------------------------------------------------
 
