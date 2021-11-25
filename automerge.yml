@@ -16,6 +16,7 @@ steps:
     targetType: 'inline'
     script: |
       write-Host $(Build.DefinitionVersion)
+      write-Host $(Build.Repository.Name)
 - task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
