@@ -29,10 +29,11 @@ $Headers = @{
 
 write-host $Headers
 
-$webRequest = Invoke-RestMethod -URI "http://api.open-notify.org/astros.json"
+#$webRequest = Invoke-RestMethod -URI "http://api.open-notify.org/astros.json"
 
-$createpullrequest = Invoke-RestMethod -Headers $Headers
+#$createpullrequest = Invoke-RestMethod -Headers $Headers
 
+curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"
 
 #get branches
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
