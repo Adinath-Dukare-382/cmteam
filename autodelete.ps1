@@ -11,7 +11,7 @@ param(
 )
 
 $Token = $env:GithubToken_ENV_VAR
-$write-Host $Version
+write-Host $Version
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Adinath-Dukare-382/githubpoc/branches
 
 $output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/commits/$Version/pulls | ConvertFrom-Json
