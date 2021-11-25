@@ -31,5 +31,5 @@ steps:
       git config --global user.name "Adinath-Dukare-382"
       git branch --merged
       git branch -r --merged| egrep -v "(^\*|main)"
-      git branch --merged| grep -v "main" | xargs git branch -D
+      git branch -r --merged main | ack -v main | sed -e 's/\// :/' | xargs -n2 git push
       
