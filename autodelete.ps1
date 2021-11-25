@@ -13,7 +13,7 @@ param(
 
 write-host ---------------------------------------------------------------------------
 
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/25
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls
 
 
 write-host ---------------------------------------------------------------------------
