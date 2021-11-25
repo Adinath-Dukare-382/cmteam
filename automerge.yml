@@ -20,6 +20,7 @@ steps:
       write-Host $(Build.SourceBranch)
       write-Host $(Build.SourceBranchName)
       write-Host $(Build.SourceVersion)
+      write-Host $(Build.SourceVersionMessage)
       write-Host $(Build.Repository.Name)
       write-Host $env:System.PullRequest.PullRequestNumber
 - task: PowerShell@2
