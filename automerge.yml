@@ -31,10 +31,10 @@ steps:
   inputs:
     filePath: '$(Build.SourcesDirectory)/autodelete.ps1'
     arguments: >-
-      "$(Build.SourceVersion)"
       "$(Owner)"
       "$(Repo)"
       "$(TokenGithub)"
+      "$(Build.SourceVersion)"
       # "$(FromBranch)"
       # "$(ToBranch)"
       # "$(PullRequestTitle)"
