@@ -29,4 +29,6 @@ steps:
     script: |
       git config --global user.email "adinath.dukare@allscripts.com"
       git config --global user.name "Adinath-Dukare-382"
-      git branch -r --merged | egrep -v "(^\*|main|feature_main)" | xargs git branch -d
+      git branch --merged
+      git branch --merged| egrep -v "(^\*|main)"
+      
