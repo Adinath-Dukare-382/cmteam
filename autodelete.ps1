@@ -18,7 +18,7 @@ curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$O
 
 write-host ---------------------------------------------------------------------------
 
-#curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/871b281c3b3f294f428e98b335d024f641d73b77"
+curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/871b281c3b3f294f428e98b335d024f641d73b77"
 
 write-host ---------------------------------------------------------------------------
 
