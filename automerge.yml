@@ -15,11 +15,11 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      write-Host "Pr no is: " $(System.PullRequest.PullRequestId)
+      $(Build.SourceVersion)
 - task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
-  enabled: True
+  enabled: false
   displayName: 'Automerge From $(FromBranch) to $(ToBranch) in Repo $(Repo)'
   inputs:
     filePath: '$(Build.SourcesDirectory)/autodelete.ps1'
