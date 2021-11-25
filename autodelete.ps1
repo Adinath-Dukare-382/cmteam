@@ -11,31 +11,33 @@ param(
 )
 
 $Token = $env:GithubToken_ENV_VAR
+
 write-Host $Version
+
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Adinath-Dukare-382/cmteam/branches
 
-$output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | ConvertFrom-Json
-$output
-$urloutput = $output.url
-write-Host $urloutput
+# $output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | ConvertFrom-Json
+# $output
+# $urloutput = $output.url
+# write-Host $urloutput
 
 
-$prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $urloutput | ConvertFrom-Json
-$branch = $prinfo.head.ref
-$branch
+# $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $urloutput | ConvertFrom-Json
+# $branch = $prinfo.head.ref
+# $branch
 
 #curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/git/refs/heads/$branch
 
-write-host ---------------------------------------------------------------------------
+# write-host ---------------------------------------------------------------------------
 
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/octocat/hello-world/pulls
 
-write-host ---------------------------------------------------------------------------
+# write-host ---------------------------------------------------------------------------
 
 #curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/871b281c3b3f294f428e98b335d024f641d73b77"
 
-write-host ---------------------------------------------------------------------------
+# write-host ---------------------------------------------------------------------------
 
 #get branches
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
