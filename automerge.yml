@@ -15,6 +15,7 @@ steps:
     script: |
       write-Host $(Build.DefinitionVersion)
       write-Host $(Build.SourceBranch)
+      write-Host $(Build.SourceBranchName)
       write-Host $(Build.SourceVersion)
       write-Host $(Build.Repository.Name)
       write-Host $env:System.PullRequest.PullRequestNumber
