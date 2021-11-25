@@ -17,6 +17,7 @@ steps:
     targetType: 'inline'
     script: |
       write-Host $(Build.DefinitionVersion)
+      write-Host $(Build.TriggeredBy.DefinitionName)
       write-Host $(Build.SourceBranch)
       write-Host $(Build.SourceBranchName)
       write-Host $(Build.SourceVersion)
