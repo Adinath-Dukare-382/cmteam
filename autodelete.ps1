@@ -33,7 +33,8 @@ write-host $Headers
 
 #$createpullrequest = Invoke-RestMethod -Headers $Headers
 
-curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"
+$result = @{curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"} | ConvertTo-Json;
+$result
 
 #get branches
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
