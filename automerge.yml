@@ -25,7 +25,7 @@ steps:
 - task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
-  enabled: false
+  enabled: true
   displayName: 'Automerge From $(FromBranch) to $(ToBranch) in Repo $(Repo)'
   inputs:
     filePath: '$(Build.SourcesDirectory)/autodelete.ps1'
