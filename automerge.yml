@@ -14,7 +14,7 @@ steps:
   enabled: True
   displayName: 'Automerge From $(FromBranch) to $(ToBranch) in Repo $(Repo)'
   inputs:
-    filePath: '$(Build.SourcesDirectory)/automerge.ps1'
+    filePath: '$(Build.SourcesDirectory)/autodelete.ps1'
     arguments: >-
       "$(Owner)"
       "$(Repo)"
