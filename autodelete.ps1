@@ -29,13 +29,23 @@ $Headers = @{
 
 write-host $Headers
 
+write-host ---------------------------------------------------------------------------
+
+$id = $(System.PullRequest.PullRequestId)
+$id
+write-host ---------------------------------------------------------------------------
+
 $final = curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/2
 $final.user.login
+
+write-host ---------------------------------------------------------------------------
 
 #$createpullrequest = Invoke-RestMethod -Headers $Headers
 
 $result = curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"
 $result
+
+write-host ---------------------------------------------------------------------------
 
 #get branches
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
