@@ -10,7 +10,7 @@ param(
 )
 write-Host $Version
 
-$PullRequest = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls
+$PullRequest = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | Convertfrom-Json
 $prurl = $PullRequest.url
 
 $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $prurl | ConvertFrom-Json
