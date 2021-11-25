@@ -17,4 +17,4 @@ $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $prurl | ConvertFrom-Js
 $branch = $prinfo.head.ref
 $branch
 
-curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/git/refs/heads/$branch
+curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/git/refs/heads/$branch
