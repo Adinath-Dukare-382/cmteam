@@ -29,7 +29,8 @@ $Headers = @{
 
 write-host $Headers
 
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/2
+$final = curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/2
+$final
 
 #$createpullrequest = Invoke-RestMethod -Headers $Headers
 
