@@ -31,4 +31,5 @@ steps:
       git config --global user.name "Adinath-Dukare-382"
       git branch --merged
       git branch -r --merged| egrep -v "(^\*|main)"
+      git branch | grep -v "main" | xargs git branch -D
       
