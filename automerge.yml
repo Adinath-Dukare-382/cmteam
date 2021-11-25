@@ -12,6 +12,11 @@ pool:
 
 steps:
 - task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      write-Host "Pr no is: " System.PullRequest.PullRequestId
+- task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
   enabled: True
@@ -26,6 +31,9 @@ steps:
       # "$(ToBranch)"
       # "$(PullRequestTitle)"
       # "$(Reviewers)"
+
+
+
 
 # - task: CmdLine@2
 #   inputs:
