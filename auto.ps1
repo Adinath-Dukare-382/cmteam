@@ -15,5 +15,5 @@ $prurl = $PullRequest.url
 $prinfo = curl -X GET -u $Owner:$TokenGithub $prurl | ConvertFrom-Json
 $branch = $prinfo.head.ref
 
-curl -X DELETE -u $Owner:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
+curl -X DELETE -u $Owner :$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
 write-host "$branch be deleted"
