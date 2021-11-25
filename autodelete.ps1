@@ -10,10 +10,9 @@ param(
 
  $Token = $env:GithubToken_ENV_VAR
 
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Adinath-Dukare-382/githubpoc/branches
 
-
-
+curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/b20b89382683ceaee0e84021403248031bd5be3b/pulls
 
 
 
