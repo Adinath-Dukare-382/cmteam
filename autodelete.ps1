@@ -20,7 +20,7 @@ $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/
 $prinfo
 $branch = $prinfo.head.ref
 
-curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/github/git/refs/heads/$branch
+curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/git/refs/heads/$branch
 
 write-host ---------------------------------------------------------------------------
 
