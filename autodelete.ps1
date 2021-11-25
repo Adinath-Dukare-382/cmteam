@@ -16,8 +16,8 @@ write-Host $Version
 
 # curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Adinath-Dukare-382/githubpoc/branches
 
-curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | ConvertFrom-Json
-# $output
+$output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/cmteam/commits/$Version/pulls | ConvertFrom-Json
+$output
 # $urloutput = $output.url
 # write-Host $urloutput
 
