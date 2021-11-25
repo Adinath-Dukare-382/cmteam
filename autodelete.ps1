@@ -42,8 +42,7 @@ write-host ---------------------------------------------------------------------
 
 #$createpullrequest = Invoke-RestMethod -Headers $Headers
 
-$result = curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"
-$result
+curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/main"
 
 write-host ---------------------------------------------------------------------------
 
