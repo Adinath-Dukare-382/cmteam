@@ -31,8 +31,8 @@ write-host $Headers
 
 write-host ---------------------------------------------------------------------------
 
-$final = curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/2
-$final.user.login
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/33
+
 
 write-host ---------------------------------------------------------------------------
 
