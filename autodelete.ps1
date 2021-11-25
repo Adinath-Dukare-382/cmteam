@@ -10,20 +10,27 @@ param(
 
  $Token = $env:GithubToken_ENV_VAR
 
+curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
+
+
+
+
+
 
 write-host ---------------------------------------------------------------------------
 
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls
-
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/octocat/hello-world/pulls
 
 write-host ---------------------------------------------------------------------------
 
-curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/871b281c3b3f294f428e98b335d024f641d73b77"
+#curl -s -H "Authorization: token $TokenGithub" -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/$Owner/$Repo/commits/871b281c3b3f294f428e98b335d024f641d73b77"
 
 write-host ---------------------------------------------------------------------------
 
 #get branches
-curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
+#curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches
+
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/main
 #curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/branches/feature_enable
 #curl -X DELETE -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/git/refs/heads/main
