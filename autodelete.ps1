@@ -31,10 +31,6 @@ write-host $Headers
 
 write-host ---------------------------------------------------------------------------
 
-$id = $(System.PullRequest.PullRequestId)
-$id
-write-host ---------------------------------------------------------------------------
-
 $final = curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$Owner/$Repo/pulls/2
 $final.user.login
 
