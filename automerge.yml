@@ -17,7 +17,7 @@ steps:
     script: |
       write-Host $(Build.DefinitionVersion)
       write-Host $(Build.Repository.Name)
-      write-Host $System.PullRequest.PullRequestNumber
+      write-Host $System.PullRequest.PullRequestId
 - task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
