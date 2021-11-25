@@ -10,19 +10,16 @@ param(
   [string]$Version
 )
 
-write-Host $Version
- $Token = $env:GithubToken_ENV_VAR
+$Token = $env:GithubToken_ENV_VAR
 
 curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Adinath-Dukare-382/githubpoc/branches
 
-# $output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/commits/b20b89382683ceaee0e84021403248031bd5be3b/pulls | ConvertFrom-Json
-# $output
-# $output.url
+$output = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/commits/$Version/pulls | ConvertFrom-Json
+$url = $output.url
 
 
-# $prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/pulls/3 | ConvertFrom-Json
-# $prinfo
-# $branch = $prinfo.head.ref
+$prinfo = curl -X GET -u Adinath-Dukare-382:$TokenGithub $url | ConvertFrom-Json
+$branch = $prinfo.head.ref
 
 curl -X DELETE -u Adinath-Dukare-382:$TokenGithub https://api.github.com/repos/Adinath-Dukare-382/githubpoc/git/refs/heads/$branch
 
