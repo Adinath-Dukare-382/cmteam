@@ -20,7 +20,7 @@ $branch = $prinfo.head.ref
 if($branch -ne 'development'){
   write-Host 'Deleting branch...'
   curl -X DELETE -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
-  write-Host $branch+' branch deleted'
+  write-Host "$branch branch deleted"
 }
 else{
   write-host "This Branch can't be deleted"
