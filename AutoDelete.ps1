@@ -16,24 +16,46 @@ $Headers = @{
     };
 
 
-$urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
-$PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
+#$urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
+#$PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
 
-$prUrl = $PullRequest.url
+#$prUrl = $PullRequest.url
 
-$prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
-$branch = $prinfo.head.ref
+#$prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
+#$branch = $prinfo.head.ref
 
-$branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch"
-$branchInfo = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Get
+#$branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch"
+#$branchInfo = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Get
 
-if($branchInfo.message){
-    Write-Host $branch"branch either be deleted or no longer exists...!"
-}
-else{
+
+try { 
+    $urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
+    $PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
+
+    $prUrl = $PullRequest.url
+
+    $prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
+    $branch = $prinfo.head.ref
+
+    $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch"
+   
+    #$branchInfo = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Get
+
     Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
-    Write-Host $branch" Branch Deleted..!"
+
+     Write-Host $branch" Branch Deleted..!"
+} 
+catch { 
+    Write-Host $branch"branch either be deleted or no longer exists...!" 
 }
+
+#if($branchInfo.message){
+#    Write-Host $branch"branch either be deleted or no longer exists...!"
+#}
+#else{
+#    Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+#    Write-Host $branch" Branch Deleted..!"
+#}
      
 
 
