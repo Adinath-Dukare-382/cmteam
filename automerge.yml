@@ -29,7 +29,7 @@ steps:
   enabled: true
   displayName: 'Autodelete feature branch'
   inputs:
-    filePath: '$(Build.SourcesDirectory)/auto.ps1'
+    filePath: '$(Build.SourcesDirectory)/AutoDelete.ps1'
     arguments: >-
       "$(Owner)"
       "$(Repo)"
