@@ -17,21 +17,24 @@ $Headers = @{
 
 try {
     write-Host "Commit Id: "$SHA
+
     $CommitUrl = "https://api.github.com/repos/$Owner/$Repo/commits/$SHA/pulls"
     $PullRequest = Invoke-RestMethod -Headers $Headers -uri $CommitUrl -Method Get
     
     write-Host "PR Number: "$PullRequest.number
+
     $prUrl = $PullRequest.url
-
     $prInfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
-    $prInfo
-    $branchTobeDeleted = $prInfo.head.ref
+    
+    write-Host "PR Title: "$prInfo.title
 
+    $branchTobeDeleted = $prInfo.head.ref
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
    
     Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
 
     write-Host "Branch Name: "$branchTobeDeleted
+
     Write-Host $branchTobeDeleted" Branch Deleted..!"
 } 
 catch { 
