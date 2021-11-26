@@ -45,6 +45,5 @@ steps:
     arguments: >-
       "$(Owner)"
       "$(Repo)"
-#       "$(TokenGithub)"
       "$(Build.SourceVersion)"
 
