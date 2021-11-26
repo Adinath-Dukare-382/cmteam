@@ -16,7 +16,7 @@ $Headers = @{
     };
 
 $urlbody = https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls
-$PullRequest1 = Invoke-RestMethod -Headers $Headers -uri $urlbody -Method Get
+$PullRequest1 = Invoke-RestMethod -uri $urlbody
 $PullRequest1
 
 $PullRequest = curl -X GET -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls | Convertfrom-Json
