@@ -3,11 +3,13 @@ param(
   [string]$Owner,
   [parameter(Mandatory=$True)] 
   [string]$Repo,
-  [parameter(Mandatory=$True)] 
-  [string]$TokenGithub,
+#   [parameter(Mandatory=$True)] 
+#   [string]$TokenGithub,
   [parameter(Mandatory=$True)]
   [string]$Version
 )
+
+$TokenGithub = $env:GithubToken_ENV_VAR
 
 $PullRequest = curl -X GET -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls | Convertfrom-Json
 $prurl = $PullRequest.url
