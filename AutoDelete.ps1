@@ -19,7 +19,7 @@ $Headers = @{
 $urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
 $PullRequest1 = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
 
-$prUrl = "$PullRequest.url"
+$prUrl = $PullRequest.url
 
 $prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
 $branch = $prinfo.head.ref
