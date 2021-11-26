@@ -15,8 +15,10 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
 
+
+$Headers1 = ${Owner}:$TokenGithub
 $urlbody = https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls
-$PullRequest1 = Invoke-RestMethod -uri $urlbody
+$PullRequest1 = Invoke-RestMethod -Headers $Headers1 -uri $urlbody
 $PullRequest1
 
 $PullRequest = curl -X GET -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls | Convertfrom-Json
