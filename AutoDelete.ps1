@@ -3,8 +3,6 @@ param(
   [string]$Owner,
   [parameter(Mandatory=$True)] 
   [string]$Repo,
-#   [parameter(Mandatory=$True)] 
-#   [string]$TokenGithub,
   [parameter(Mandatory=$True)]
   [string]$Version
 )
@@ -17,11 +15,7 @@ $prurl = $PullRequest.url
 $prinfo = curl -X GET -u ${Owner}:$TokenGithub $prurl | ConvertFrom-Json
 $branch = $prinfo.head.ref
 
-if($branch -ne 'development'){
-  write-Host 'Deleting branch...'
-  curl -X DELETE -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
-  write-Host "$branch branch deleted"
-}
-else{
-  write-host "This Branch can't be deleted"
-}
+write-Host 'Deleting branch...'
+curl -X DELETE -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
+write-Host "$branch branch deleted"
+
