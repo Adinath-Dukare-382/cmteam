@@ -34,4 +34,5 @@ steps:
       "$(Owner)"
       "$(Repo)"
       "$(Build.SourceVersion)"
-
+      
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
