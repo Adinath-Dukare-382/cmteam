@@ -4,82 +4,36 @@ param(
   [parameter(Mandatory=$True)] 
   [string]$Repo,
   [parameter(Mandatory=$True)]
-  [string]$Version
+  [string]$SHA
 )
 
-$TokenGithub = $env:GithubToken_ENV_VAR
+$Token = $env:GithubToken_ENV_VAR
 
-$base64token = [System.Convert]::ToBase64String([char[]]$TokenGithub);
+$base64token = [System.Convert]::ToBase64String([char[]]$Token);
 
 $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
 
-
-#$urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
-#$PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
-
-#$prUrl = $PullRequest.url
-
-#$prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
-#$branch = $prinfo.head.ref
-
-#$branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch"
-#$branchInfo = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Get
-
-
-try { 
-    $urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
-    $PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
-
+try {
+    write-Host "Commit Id: "$SHA
+    $CommitUrl = "https://api.github.com/repos/$Owner/$Repo/commits/$SHA/pulls"
+    $PullRequest = Invoke-RestMethod -Headers $Headers -uri $CommitUrl -Method Get
+    
+    write-Host "PR Number: "$PullRequest.number
     $prUrl = $PullRequest.url
 
-    $prinfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
-    $branch = $prinfo.head.ref
+    $prInfo = Invoke-RestMethod -Headers $Headers -uri $prUrl -Method Get
+    $prInfo
+    $branchTobeDeleted = $prInfo.head.ref
 
-    $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch"
+    $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
    
-    #$branchInfo = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Get
-
     Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
 
-     Write-Host $branch" Branch Deleted..!"
+    write-Host "Branch Name: "$branchTobeDeleted
+    Write-Host $branchTobeDeleted" Branch Deleted..!"
 } 
 catch { 
-    Write-Host $branch"branch either be deleted or no longer exists...!" 
+    Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
 }
-
-#if($branchInfo.message){
-#    Write-Host $branch"branch either be deleted or no longer exists...!"
-#}
-#else{
-#    Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
-#    Write-Host $branch" Branch Deleted..!"
-#}
-     
-
-
-#$PullRequest = curl -X GET -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls | Convertfrom-Json
-#$prUrl = $PullRequest.url
-
-
-
-#$prinfo = curl -X GET -u ${Owner}:$TokenGithub $prurl | ConvertFrom-Json
-#$branch = $prinfo.head.ref
-
-
-
-#$branchInfo = curl -X GET -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch | ConvertFrom-Json
-#if($branchInfo.message)
-#  {
-#      Write-Host "Already branch deleted or no longer exists...!"
-#  }
-#else
-#  {
-#      curl -s -X DELETE -u $(user):$(GithubToken) https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
-#      Write-Host $branchtobedeleted" Branch Deleted..!" 
-#  }
-  
-# write-Host 'Deleting branch...'
-# curl -X DELETE -u ${Owner}:$TokenGithub https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branch
-# write-Host "$branch branch deleted"
