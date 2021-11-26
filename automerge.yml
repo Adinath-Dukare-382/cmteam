@@ -11,7 +11,7 @@ steps:
 - task: PowerShell@2
   env:
     GithubToken_ENV_VAR: $(GithubToken)
-  enabled: True
+  enabled: false
   displayName: 'Automerge From $(FromBranch) to $(ToBranch) in Repo $(Repo)'
   inputs:
     filePath: '$(Build.SourcesDirectory)/automerge.ps1'
