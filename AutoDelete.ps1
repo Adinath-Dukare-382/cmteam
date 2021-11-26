@@ -17,7 +17,7 @@ $Headers = @{
 
 
 $urlCommitId = "https://api.github.com/repos/$Owner/$Repo/commits/$Version/pulls"
-$PullRequest1 = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
+$PullRequest = Invoke-RestMethod -Headers $Headers -uri $urlCommitId -Method Get
 
 $prUrl = $PullRequest.url
 
