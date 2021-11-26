@@ -31,7 +31,7 @@ try {
     $branchTobeDeleted = $prInfo.head.ref
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
    
-    Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+    $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
 
     write-Host "Branch Name: "$branchTobeDeleted
 
