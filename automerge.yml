@@ -35,4 +35,4 @@ steps:
       "$(Repo)"
       "$(Build.SourceVersion)"
       
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
+  # condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
