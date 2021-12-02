@@ -45,44 +45,34 @@ try {
       } | ConvertTo-Json;
 
     try{
-      $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-      $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
-      Start-Sleep -Seconds 10
+      $PullRequestBody = @{
+      head = $branchToBeDeleted; # from
+      base = 'main'; # to 
+      title = 'feture to main checking before delete'; #title of PR
 
-      #get pull request details
-      
-      $uri = $createpullrequest.url
-      $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
-      
-      if(($PullRequestDetails.mergeable -eq "True"))
-      { 
-           write-Host "New content added"
-      }
+      } | ConvertTo-Json;
 
-#       $newPrInfo = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
-#       $newPrInfo
-#       $todelete = $newPrInfo.head.ref
-#       $todelete
-      
-#       if($branchTobeDeleted -eq $todelete -and $newPrInfo.state -eq 'open'){
-#         write-Host 'New Content added in the feature branch..Can;t be deleted'
-#       }
-      
-      
-      
-#       $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
-#       Start-Sleep -Seconds 10
 
-#       #get pull request details
-#       $uri = $createpullrequest.url
-#       $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+      $MergeBody = @{
+            commit_title = 'checking mergeable'; 
+      } | ConvertTo-Json;
+      
+      
+        $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
+        $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
+        $createpullrequest
+        Start-Sleep -Seconds 10
 
-#       if(($PullRequestDetails.mergeable -eq "True"))
-#       { 
-#            write-Host "New content added"
-#       }
-    }
-#     else
+        #get pull request details
+
+        $uri = $createpullrequest.url
+        $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+
+        if(($PullRequestDetails.mergeable -eq "True"))
+        { 
+             write-Host "New content added"
+        }
+      
     catch
       {
           write-Host "Nothing new added.. Good to delete"
