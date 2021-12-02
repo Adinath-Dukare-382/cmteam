@@ -59,7 +59,7 @@ try {
     }
     else
     {
-        write-Host "Nothing new added.. Good to delete
+        write-Host "Nothing new added.. Good to delete"
     }
     
     #############################################################################
