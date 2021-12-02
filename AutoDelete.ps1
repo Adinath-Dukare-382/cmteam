@@ -32,17 +32,7 @@ try {
     
     #############################################################################
     
-    $PullRequestBody = @{
-      head = $branchToBeDeleted; # from
-      base = 'main'; # to 
-      title = 'feture to main checking before delete'; #title of PR
-
-      } | ConvertTo-Json;
-
-
-      $MergeBody = @{
-            commit_title = 'checking mergeable'; 
-      } | ConvertTo-Json;
+  
 
     try{
       $PullRequestBody = @{
@@ -72,7 +62,7 @@ try {
         { 
              write-Host "New content added"
         }
-      
+     }
     catch
       {
           write-Host "Nothing new added.. Good to delete"
