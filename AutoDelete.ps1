@@ -46,13 +46,23 @@ try {
 
     try{
       $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-#       $res = Invoke-RestMethod -Headers $Headers -uri  $uri
-#       $res
+      $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
+      Start-Sleep -Seconds 10
+
+      #get pull request details
       
-      $newPrInfo = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
-      $newPrInfo
-      $todelete = $newPrInfo.head.ref
-      $todelete
+      $uri = $createpullrequest.url
+      $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+      
+      if(($PullRequestDetails.mergeable -eq "True"))
+      { 
+           write-Host "New content added"
+      }
+
+#       $newPrInfo = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
+#       $newPrInfo
+#       $todelete = $newPrInfo.head.ref
+#       $todelete
       
 #       if($branchTobeDeleted -eq $todelete -and $newPrInfo.state -eq 'open'){
 #         write-Host 'New Content added in the feature branch..Can;t be deleted'
