@@ -32,21 +32,16 @@ try {
     
     #############################################################################
     
-  
 
     try{
-      $PullRequestBody = @{
-      head = $branchToBeDeleted; # from
-      base = 'main'; # to 
-      title = 'feture to main checking before delete'; #title of PR
+    
+        $PullRequestBody = @{
+        head = $branchToBeDeleted; # from
+        base = 'main'; # to 
+        title = 'feture to main checking before delete'; #title of PR
 
-      } | ConvertTo-Json;
+        } | ConvertTo-Json;
 
-
-      $MergeBody = @{
-            commit_title = 'checking mergeable'; 
-      } | ConvertTo-Json;
-      
       
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
         $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
@@ -61,6 +56,8 @@ try {
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
              write-Host "New content added"
+#              $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Get
+             curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
         }
      }
     catch
