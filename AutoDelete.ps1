@@ -14,6 +14,8 @@ $base64token = [System.Convert]::ToBase64String([char[]]$Token);
 $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
+    
+curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/Adinath-Dukare-382/cmteam/pulls/100 -d '{"title":"feture to main checking before delete","state":"closed"}'
 
 try {
     write-Host "Commit Id: "$SHA
