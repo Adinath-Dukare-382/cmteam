@@ -72,11 +72,11 @@ try {
     
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
    
-    $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+#     $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
 
     write-Host "Branch Name: "$branchTobeDeleted
 
-    Write-Host $branchTobeDeleted" Branch Deleted..!"
+    Write-Host $branchTobeDeleted" Branch should Deleting..!"
 } 
 catch { 
     Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
