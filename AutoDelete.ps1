@@ -46,6 +46,9 @@ try {
 
     try{
       $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
+      $res = Invoke-RestMethod -Headers $Headers -uri  $uri
+      $res
+      
       $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
       Start-Sleep -Seconds 10
 
