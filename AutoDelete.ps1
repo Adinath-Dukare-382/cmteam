@@ -15,7 +15,7 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
 
-# try {
+try {
     write-Host "Commit Id: "$SHA
 
     $CommitUrl = "https://api.github.com/repos/$Owner/$Repo/commits/$SHA/pulls"
@@ -44,23 +44,25 @@ $Headers = @{
             commit_title = 'checking mergeable'; 
       } | ConvertTo-Json;
 
-    
-    $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-    $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
-    Start-Sleep -Seconds 10
-    
-    #get pull request details
-    $uri = $createpullrequest.url
-    $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
-    
-    if(($PullRequestDetails.mergeable -eq "True"))
-    { 
-         write-Host "New content added"
+    try{
+      $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
+      $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
+      Start-Sleep -Seconds 10
+
+      #get pull request details
+      $uri = $createpullrequest.url
+      $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+
+      if(($PullRequestDetails.mergeable -eq "True"))
+      { 
+           write-Host "New content added"
+      }
     }
-    else
-    {
-        write-Host "Nothing new added.. Good to delete"
-    }
+#     else
+    catch
+      {
+          write-Host "Nothing new added.. Good to delete"
+      }
     
     #############################################################################
     
@@ -71,7 +73,7 @@ $Headers = @{
     write-Host "Branch Name: "$branchTobeDeleted
 
     Write-Host $branchTobeDeleted" Branch Deleted..!"
-# } 
-# catch { 
+} 
+catch { 
     Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
-# }
+}
