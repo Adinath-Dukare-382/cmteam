@@ -29,6 +29,41 @@ try {
     write-Host "PR Title: "$prInfo.title
 
     $branchTobeDeleted = $prInfo.head.ref
+    
+    #############################################################################
+    
+    $PullRequestBody = @{
+      head = $branchToBeDeleted; # from
+      base = 'main'; # to 
+      title = 'feture to main checking before delete'; #title of PR
+
+      } | ConvertTo-Json;
+
+
+      $MergeBody = @{
+            commit_title = 'checking mergeable'; 
+      } | ConvertTo-Json;
+
+    
+    $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
+    $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
+    Start-Sleep -Seconds 10
+    
+    #get pull request details
+    $uri = $createpullrequest.url
+    $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+    
+    if(($PullRequestDetails.mergeable -eq "True"))
+    { 
+         write-Host "New content added"
+    }
+    else
+    {
+        write-Host "Nothing new added.. Good to delete
+    }
+    
+    #############################################################################
+    
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
    
     $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
