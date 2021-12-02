@@ -15,7 +15,7 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
 
-try {
+# try {
     write-Host "Commit Id: "$SHA
 
     $CommitUrl = "https://api.github.com/repos/$Owner/$Repo/commits/$SHA/pulls"
@@ -71,7 +71,7 @@ try {
     write-Host "Branch Name: "$branchTobeDeleted
 
     Write-Host $branchTobeDeleted" Branch Deleted..!"
-} 
-catch { 
+# } 
+# catch { 
     Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
-}
+# }
