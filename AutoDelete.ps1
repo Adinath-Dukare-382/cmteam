@@ -9,11 +9,11 @@ param(
 
 $Token = $env:GithubToken_ENV_VAR
 
-$base64token = [System.Convert]::ToBase64String([char[]]$Token);
+# $base64token = [System.Convert]::ToBase64String([char[]]$Token);
 
-$Headers = @{
-       Authorization = 'Basic {0}' -f $base64token;
-    };
+# $Headers = @{
+#        Authorization = 'Basic {0}' -f $base64token;
+#     };
     
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/101"
 # $closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Patch '{"title":"feture to main checking before delete"}'
