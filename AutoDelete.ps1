@@ -15,7 +15,10 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
     
-curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/Adinath-Dukare-382/cmteam/pulls/101 -d '{"title":"feture to main checking before delete","state":"closed"}'
+$uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/101"
+$closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Patch '{"title":"feture to main checking before delete"}'
+$closedpr
+curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":"feture to main checking before delete","state":"closed"}'
 
 try {
     write-Host "Commit Id: "$SHA
