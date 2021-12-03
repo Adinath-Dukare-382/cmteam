@@ -15,15 +15,15 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
     
-$deletebody  = @{
-  "title"="delete";
-#   state= "closed"
-# \""title\"" = \""open\"";
-  } | ConvertTo-Json;
+# $deletebody  = @{
+#   "title"="delete";
+# #   state= "closed"
+# # \""title\"" = \""open\"";
+#   } | ConvertTo-Json;
 
-$uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
-$closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -d $deletebody -Method Patch 
-$closedpr
+# $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
+# $closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -d $deletebody -Method Patch 
+# $closedpr
 
 # curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":" delete"}'
 
@@ -68,8 +68,9 @@ try {
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
              write-Host "New content added"
-#              $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Get
-             curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
+             curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""title\"": \""update\"" }"
+
+#              curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
         }
      }
     catch
