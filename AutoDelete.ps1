@@ -69,7 +69,7 @@ try {
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
             write-Host "New content added..We cant delete it"
-            $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
+            $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{"state":"closed"}"
             $status = $false
         }
     }
