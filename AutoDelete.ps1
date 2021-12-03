@@ -18,8 +18,8 @@ $Headers = @{
 $deletebody  = @{
 #   "title"="delete";
 #   state= "closed"
-\""title\"": \""open\"";
-  };
+\""title\"" = \""open\"";
+  } | ConvertTo-Json;
 
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
 $closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -Body $deletebody -Method Patch 
