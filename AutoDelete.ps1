@@ -77,10 +77,8 @@ try {
     {
         write-Host "-----------------testing catch bloack1-------------------"
         $getpr = curl.exe -X GET -u Adinath-Dukare-382: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 https://api.github.com/repos/Adinath-dukare-382/cmteam/pulls?searchCriteria.sourceRefName=$branchToBeDeleted | ConvertFrom-Json
-        $getpr
-        $already = $getpr.state
 
-        if($already -eq 'open'){
+        if($getpr.state){
             Write-Host "PR aleredy created"
             $status = $false
         }
