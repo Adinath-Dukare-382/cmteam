@@ -6,6 +6,7 @@ param(
   [parameter(Mandatory=$True)]
   [string]$SHA
 )
+$status = $true
 
 $Token = $env:GithubToken_ENV_VAR
 
@@ -26,6 +27,7 @@ $Headers = @{
 # $closedpr
 
 # curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":" delete"}'
+
 
 try {
     write-Host "Commit Id: "$SHA
@@ -68,21 +70,26 @@ try {
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
              write-Host "New content added"
-             curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""title\"": \""update\"" }"
+             curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""status\"": \""closed\"" }"
+             $status = $false
 
 #              curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
         }
      }
     catch
       {
-          write-Host "Nothing new added.. Good to delete"
+          $status = $false
+          write-Host "PR already created..."
       }
     
     #############################################################################
     
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
-   
-#     $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+    
+    
+    if($status -eq $true){
+      $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+    }
 
     write-Host "Branch Name: "$branchTobeDeleted
 
