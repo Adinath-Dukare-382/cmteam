@@ -45,14 +45,13 @@ try {
     $branchTobeDeleted = $prInfo.head.ref
     
     #############################################################################
-    
 
     try{
     
         $PullRequestBody = @{
         head = $branchToBeDeleted; # from
         base = 'main'; # to 
-        title = 'feture to main checking before delete'; #title of PR
+        title = 'feature to main checking before delete'; #title of PR
 
         } | ConvertTo-Json;
 
@@ -69,18 +68,16 @@ try {
 
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
-             write-Host "New content added"
+             write-Host "New content added..We cant delete it"
              $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
              $status = $false
-
-#              curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
         }
-     }
+    }
     catch
-      {
-          $status = $false
-          write-Host "PR already created..."
-      }
+    {
+        $status = $false
+        write-Host "PR already created...We cant delete branch"
+    }
     
     #############################################################################
     
@@ -89,12 +86,13 @@ try {
     
     if($status -eq $true){
       $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+
+      write-Host "Branch Name: "$branchTobeDeleted
+
+      Write-Host $branchTobeDeleted" Branch Deleted..!"
     }
-
-    write-Host "Branch Name: "$branchTobeDeleted
-
-    Write-Host $branchTobeDeleted" Branch should Deleting..!"
 } 
+
 catch 
 { 
     Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
