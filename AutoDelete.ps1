@@ -16,8 +16,8 @@ $Headers = @{
     };
     
 $deletebody  = @{
-  title: "delete",
-  state: "closed"
+  title= "delete",
+  state= "closed"
   }
 
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/102"
@@ -86,6 +86,7 @@ try {
 
     Write-Host $branchTobeDeleted" Branch should Deleting..!"
 } 
-catch { 
+catch 
+{ 
     Write-Host $branchTobeDeleted" branch is either already deleted or no longer exists...!" 
 }
