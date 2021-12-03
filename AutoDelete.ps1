@@ -37,30 +37,22 @@ try {
 
     try{
         $PullRequestBody = @{
-        head = $branchToBeDeleted; # from
-        base = 'main'; # to 
-        title = 'feature to main checking before delete'; #title of PR
-
+          head = $branchToBeDeleted; # from
+          base = 'main'; # to 
+          title = 'feature to main checking before delete'; #title of PR
         } | ConvertTo-Json;
 
-      
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
         
         $createpullrequest = Invoke-RestMethod -Headers $Headers -uri $uri -Body $PullRequestBody -Method Post
         Start-Sleep -Seconds 10
 
-        #get pull request details
-
         $uri = $createpullrequest.url
         $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
-#         write-Host "---------------------Before"
-#         $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"title":"first change"}'
-#         write-Host "---------------------After"
-#         $status = $false
 
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
-            write-Host "New content added..We cant delete it"
+            write-Host "There is new chnages in the branch. So we can't delete the branch"
             $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{ \""state\"": \""closed\"" }'
             $status = $false
         }
@@ -69,11 +61,9 @@ try {
     {
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls?searchCriteria.sourceRefName=$branchToBeDeleted"
         $getpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
-        
-        write-Host "-----------------------------------------------********------------------------------------------------------"
-        
+               
         if($getpr.state){
-            Write-Host "PR aleredy created"
+            Write-Host "PR is created with new changes."
             $status = $false
         }
         else{
@@ -81,14 +71,13 @@ try {
         }
     }
     
+    #############################################################################
+    
     if($status -eq $true){    
         $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
-
         write-Host "Branch Name: "$branchTobeDeleted
-
         Write-Host $branchTobeDeleted" Branch Deleted..!"
     }
-    #############################################################################
 } 
 
 catch 
