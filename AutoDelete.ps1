@@ -22,7 +22,7 @@ $deletebody  = @{
   } | ConvertTo-Json;
 
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
-$closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -data $deletebody -Method Patch 
+$closedpr = Invoke-RestMethod -Headers $Headers -uri $uri --data $deletebody -Method Patch 
 $closedpr
 
 # curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":" delete"}'
