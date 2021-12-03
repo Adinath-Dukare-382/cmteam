@@ -4,8 +4,8 @@ trigger:
       - main
 pr: none
 
-pool:
-  VMImage: ubuntu-latest
+pool: SamplePool
+#   VMImage: ubuntu-latest
 
 steps:
 - task: PowerShell@2
