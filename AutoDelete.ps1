@@ -70,7 +70,7 @@ try {
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
              write-Host "New content added"
-             curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""status\"": \""closed\"" }"
+             $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
              $status = $false
 
 #              curl -X PATCH -H "Accept: application/vnd.github.v3+json" $PullRequestDetails.url -d '{"title":"feture to main checking before delete","state":"closed"}'
