@@ -16,9 +16,9 @@ $Headers = @{
     };
     
 $deletebody  = @{
-#   "title"="delete";
+  "title"="delete";
 #   state= "closed"
-\""title\"" = \""open\"";
+# \""title\"" = \""open\"";
   } | ConvertTo-Json;
 
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
