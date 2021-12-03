@@ -16,19 +16,6 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
     
-# $deletebody  = @{
-#   "title"="delete";
-# #   state= "closed"
-# # \""title\"" = \""open\"";
-#   } | ConvertTo-Json;
-
-# $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/103"
-# $closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -d $deletebody -Method Patch 
-# $closedpr
-
-# curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":" delete"}'
-
-
 try {
     write-Host "Commit Id: "$SHA
 
@@ -58,7 +45,6 @@ try {
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
         
         $createpullrequest = Invoke-RestMethod -Headers $Headers -uri $uri -Body $PullRequestBody -Method Post
-        # $createpullrequest
         Start-Sleep -Seconds 10
 
         #get pull request details
@@ -76,9 +62,11 @@ try {
     catch
     {
         write-Host "-----------------testing catch bloack1-------------------"
-        $getpr = curl -X GET -u Adinath-Dukare-382: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 https://api.github.com/repos/Adinath-dukare-382/cmteam/pulls?searchCriteria.sourceRefName=$branchToBeDeleted | ConvertFrom-Json
+        $uri = "https://api.github.com/repos/$Owner/$Repo/pulls?searchCriteria.sourceRefName=$branchToBeDeleted"
+#         $getpr = curl -X GET -u Adinath-Dukare-382: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 https://api.github.com/repos/Adinath-dukare-382/cmteam/pulls?searchCriteria.sourceRefName=$branchToBeDeleted | ConvertFrom-Json
+        $getpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
         
-        write-Host "-----------------------------------------------********------------------------------"
+        write-Host "-----------------------------------------------********------------------------------------------------------"
         if($getpr.state){
             Write-Host "PR aleredy created"
             $status = $false
