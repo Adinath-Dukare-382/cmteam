@@ -47,7 +47,6 @@ try {
     #############################################################################
 
     try{
-    
         $PullRequestBody = @{
         head = $branchToBeDeleted; # from
         base = 'main'; # to 
@@ -57,30 +56,35 @@ try {
 
       
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-        try{
-            $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
-            # $createpullrequest
-            Start-Sleep -Seconds 10
+        
+        $createpullrequest = Invoke-RestMethod -Headers $Headers -uri $uri -Body $PullRequestBody -Method Post
+        # $createpullrequest
+        Start-Sleep -Seconds 10
 
-            #get pull request details
+        #get pull request details
 
-            $uri = $createpullrequest.url
-            $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+        $uri = $createpullrequest.url
+        $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
 
-            if(($PullRequestDetails.mergeable -eq "True"))
-            { 
-                write-Host "New content added..We cant delete it"
-                $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
-                $status = $false
-            }
-        }
-        catch
-        {
-            write-Host "PR already created...We cant delete branch"
+        if(($PullRequestDetails.mergeable -eq "True"))
+        { 
+            write-Host "New content added..We cant delete it"
+            $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
+            $status = $false
         }
     }
     catch
     {
+        $getpr = curl.exe -X GET -u Adinath-Dukare-382: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 https://api.github.com/repos/Adinath-dukare-382/cmteam/pulls?searchCriteria.sourceRefName=$branchToBeDeleted ConvertFrom-Json
+        $already = $getpr.state
+
+        if($already -eq 'open'){
+            Write-Host "PR aleredy created"
+        }
+        $status = $false        
+    }
+    
+    if($status -eq $true){
         $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
     
         $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
@@ -88,9 +92,7 @@ try {
         write-Host "Branch Name: "$branchTobeDeleted
 
         Write-Host $branchTobeDeleted" Branch should Deleting..!"
-        
     }
-    
     #############################################################################
 } 
 
