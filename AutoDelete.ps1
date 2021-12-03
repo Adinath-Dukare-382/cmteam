@@ -57,40 +57,41 @@ try {
 
       
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls"
-        $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
-        $createpullrequest
-        Start-Sleep -Seconds 10
+        try{
+            $createpullrequest = Invoke-RestMethod -Headers $Headers -uri  $uri -Body $PullRequestBody -Method Post
+            # $createpullrequest
+            Start-Sleep -Seconds 10
 
-        #get pull request details
+            #get pull request details
 
-        $uri = $createpullrequest.url
-        $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+            $uri = $createpullrequest.url
+            $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
 
-        if(($PullRequestDetails.mergeable -eq "True"))
-        { 
-             write-Host "New content added..We cant delete it"
-             $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
-             $status = $false
+            if(($PullRequestDetails.mergeable -eq "True"))
+            { 
+                write-Host "New content added..We cant delete it"
+                $closePR = curl.exe -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d "{ \""state\"": \""closed\"" }"
+                $status = $false
+            }
+        }
+        catch
+        {
+            write-Host "PR already created...We cant delete branch"
         }
     }
     catch
     {
-        $status = $false
-        write-Host "PR already created...We cant delete branch"
+        $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
+    
+        $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
+
+        write-Host "Branch Name: "$branchTobeDeleted
+
+        Write-Host $branchTobeDeleted" Branch should Deleting..!"
+        
     }
     
     #############################################################################
-    
-    $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
-    
-    
-    if($status -eq $true){
-      $Delete = Invoke-RestMethod -Headers $Headers -uri $branchUrl -Method Delete
-
-      write-Host "Branch Name: "$branchTobeDeleted
-
-      Write-Host $branchTobeDeleted" Branch Deleted..!"
-    }
 } 
 
 catch 
