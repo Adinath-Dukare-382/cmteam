@@ -15,10 +15,15 @@ $Headers = @{
        Authorization = 'Basic {0}' -f $base64token;
     };
     
-$uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/101"
-$closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Patch
-$closedpr
-curl -X PATCH -H "Accept: application/vnd.github.v3+json" ${Token}:$uri -d '{"title":"feture to main checking before delete"}'
+# $deletebody  = @{
+#   title: "delete",
+#   state: "closed"
+#   }
+
+$uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/102"
+# $closedpr = Invoke-RestMethod -Headers $Headers -uri $uri -Body $deletebody -Method Patch 
+# $closedpr
+curl -X PATCH -H "Accept: application/vnd.github.v3+json" $uri -d '{"title":" delete"}'
 
 try {
     write-Host "Commit Id: "$SHA
