@@ -53,7 +53,9 @@ try {
 
         $uri = $createpullrequest.url
         $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
+        write-Host "---------------------Before"
         $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"state":"closed"}'
+        write-Host "---------------------After"
         $status = $false
 
 #         if(($PullRequestDetails.mergeable -eq "True"))
