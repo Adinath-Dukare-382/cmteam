@@ -16,8 +16,8 @@ $Headers = @{
     };
     
 $deletebody  = @{
-  title= "delete",
-  state= "closed"
+  title= "delete";
+#   state= "closed"
   }
 
 $uri = "https://api.github.com/Adinath-Dukare-382/cmteam/pulls/102"
