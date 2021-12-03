@@ -54,14 +54,14 @@ try {
         $uri = $createpullrequest.url
         $PullRequestDetails = Invoke-RestMethod -Headers $Headers -uri $uri
 #         write-Host "---------------------Before"
-#         $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"state":"closed"}'
+#         $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"title":"first change"}'
 #         write-Host "---------------------After"
 #         $status = $false
 
         if(($PullRequestDetails.mergeable -eq "True"))
         { 
             write-Host "New content added..We cant delete it"
-            $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"state":"closed"}'
+            $closePR = curl -X PATCH -u Adinath-Dukare-382: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 $PullRequestDetails.url -d '{"title":"first change"}'
             $status = $false
         }
     }
