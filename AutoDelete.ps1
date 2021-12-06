@@ -32,7 +32,7 @@ try {
     $branchTobeDeleted = $prInfo.head.ref
     
     $branchUrl = "https://api.github.com/repos/$Owner/$Repo/git/refs/heads/$branchTobeDeleted"
-    
+    write-Host "branch is"$branchTobeDeleted
     #############################################################################
 
     try{
@@ -59,6 +59,7 @@ try {
     }
     catch
     {
+        write-Host "in catch branch is"$branchToBeDeleted
         $uri = "https://api.github.com/repos/$Owner/$Repo/pulls?searchCriteria.sourceRefName=$branchToBeDeleted"
         $getpr = Invoke-RestMethod -Headers $Headers -uri $uri -Method Get
                
