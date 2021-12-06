@@ -38,7 +38,7 @@ try {
     try{
         $PullRequestBody = @{
           head = $branchToBeDeleted; # from
-          base = 'main'; # to 
+          base = 'master'; # to 
           title = 'feature to main checking before delete'; #title of PR
         } | ConvertTo-Json;
 
