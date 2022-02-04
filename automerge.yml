@@ -18,7 +18,7 @@ steps:
     script: |
       echo $(poh-v1)
       echo $(poh-V1)
-  condition: and(succeeded(), eq( $(checktf) , 'true' ))
+  condition: and(succeeded(), eq( variables[$(checktf)] , 'true' ))
 
 - task: PowerShell@2
   env:
