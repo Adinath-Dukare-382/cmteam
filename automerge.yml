@@ -7,6 +7,8 @@ pr: none
 variables:
  - group: sample
  - group: sample2
+ - name: azurefeed
+   value: $(checktf)
 
 parameters:
   - name: 'checktf'
@@ -23,7 +25,7 @@ steps:
     script: |
       echo $(poh-v1)
       echo $(poh-V1)
-  condition: and(succeeded(), eq( variables[${{parameters.checktf}}] , 'true' ))
+  condition: and(succeeded(), eq( variables['azurefeed'] , 'true' ))
 
 - task: PowerShell@2
   env:
