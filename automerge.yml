@@ -5,7 +5,6 @@ trigger:
 pr: none
 
 variables:
- - group: secret
  - group: sample
 
 pool: 
