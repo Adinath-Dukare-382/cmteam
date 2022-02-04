@@ -19,7 +19,6 @@ steps:
       echo $(v3)
 
 - task: PowerShell@2
-  enabled: false
   env:
     GithubToken_ENV_VAR: $(GithubToken)
   enabled: false
@@ -38,7 +37,6 @@ steps:
   enabled: false
   env:
     GithubToken_ENV_VAR: $(GithubToken)
-  enabled: true
   displayName: 'Autodelete feature branch'
   inputs:
     filePath: '$(Build.SourcesDirectory)/AutoDelete.ps1'
