@@ -6,6 +6,7 @@ pr: none
 
 variables:
  - group: sample
+ - group: sample2
 
 pool: 
   VMImage: ubuntu-latest
