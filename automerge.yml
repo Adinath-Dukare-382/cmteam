@@ -8,6 +8,11 @@ variables:
  - group: sample
  - group: sample2
 
+parameters:
+  - name: 'checktf'
+    type: string
+    default: true
+
 pool: 
   VMImage: ubuntu-latest
 
@@ -18,7 +23,7 @@ steps:
     script: |
       echo $(poh-v1)
       echo $(poh-V1)
-  condition: and(succeeded(), eq( variables[$(checktf)] , 'true' ))
+  condition: and(succeeded(), eq( variables[${{parameters.checktf}}] , 'true' ))
 
 - task: PowerShell@2
   env:
