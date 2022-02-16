@@ -36,4 +36,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - uses: ./.github/actions/template@main
+      - uses: Adinath-Dukare-382/cmteam/.github/workflows/test.yml
