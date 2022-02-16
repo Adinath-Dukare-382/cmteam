@@ -36,4 +36,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - uses: actions/test@main
+      - uses: ./.github/actions/template@main
