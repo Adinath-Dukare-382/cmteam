@@ -25,6 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: Adinath-Dukare-382/cmteam/.github/workflows/test.yml@main
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -36,4 +37,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - uses: Adinath-Dukare-382/cmteam/.github/workflows/test.yml@main
+
