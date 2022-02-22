@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\.github",
-    "\\.github\\actions",
+    "\\.github\\workflow-templates",
     "\\.github\\workflows"
   ],
-  "SelectedNode": "\\.github\\actions\\template.yml",
+  "SelectedNode": "\\.github\\workflows",
   "PreviewInSolutionExplorer": false
 }
