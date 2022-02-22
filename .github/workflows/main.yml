@@ -18,7 +18,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    uses: Adinath-Dukare-382/cmteam/.github/workflows/test.yml@main
+    uses: Adinath-Dukare-382/cmteam/.github/workflows-templates/test.yml@main
     # The type of runner that the job will run on
 
     # Steps represent a sequence of tasks that will be executed as part of the job
