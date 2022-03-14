@@ -39,7 +39,7 @@ jobs:
       - name : Get KeyValut Values 
         shell: pwsh          
         run: |   
-             $xmlfile = [xml](gc -Path "${{ github.workspace }}\test.config")
+             $xmlfile = [xml](gc -Path "./test.config")
              $connectionstring = $xmlfile.configuration.idntenantasinfo.POHTenantId
              
              write-host $connectionstring
