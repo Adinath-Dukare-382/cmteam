@@ -39,7 +39,9 @@ jobs:
       - name : Get KeyValut Values 
         shell: pwsh          
         run: |   
-             $xmlfile = [xml](gc -Path "./test.config")
+             $xmlfile = [xml](gc -Path "test.config")
+             write-host "hellooo"
              $connectionstring = $xmlfile.configuration.idntenantasinfo.POHTenantId
-             
+             write-host "hellooo world"
              write-host $connectionstring
+             write-host "hellooo"
