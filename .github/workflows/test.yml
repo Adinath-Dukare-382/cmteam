@@ -42,7 +42,7 @@ jobs:
              $xmlfile = [xml](gc -Path "${{ github.workspace }}/test.config")
              $xmlfile
              write-host "hellooo"
-             $connectionstring = $xmlfile.configuration.idntenantasinfo.add.POHTenantId
+             $connectionstring = $xmlfile.configuration.idntenantasinfo.add.pohenantid
              write-host "hellooo world"
              write-host $connectionstring
              write-host "hellooo"
