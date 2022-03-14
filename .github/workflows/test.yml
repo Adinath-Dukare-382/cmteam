@@ -42,7 +42,7 @@ jobs:
              $xmlfile = [xml](gc -Path "test.config")
              $xmlfile
              write-host "hellooo"
-             $connectionstring = $xmlfile.configuration.idntenantasinfo.POHTenantId
+             $connectionstring = $xmlfile.configuration.idntenantasinfo.add.POHTenantId
              write-host "hellooo world"
              write-host $connectionstring
              write-host "hellooo"
