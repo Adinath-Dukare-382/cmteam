@@ -43,5 +43,6 @@ jobs:
              $xmlfile
 
              $connectionstring = $xmlfile.configuration."idntenantsinfo-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
+             $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
              write-host $connectionstring
-
+             write-host $connectionstring1
