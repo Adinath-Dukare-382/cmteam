@@ -46,3 +46,4 @@ jobs:
              write-host "hellooo world"
              write-host $connectionstring
              write-host "hellooo"
+             $xmlfile.configuration.idntenantasinfo.add.POHTenantId = "adinath"
