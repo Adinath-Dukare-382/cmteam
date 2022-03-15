@@ -42,7 +42,7 @@ jobs:
              $xmlfile = [xml](gc -Path ".\test.config")
              $xmlfile
 
-             $connectionstring = $xmlfile.configuration."60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
+             $connectionstring = $xmlfile.configuration."idntenant-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
              $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
              write-host $connectionstring
              write-host $connectionstring1
