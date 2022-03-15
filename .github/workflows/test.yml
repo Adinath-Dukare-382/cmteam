@@ -41,6 +41,7 @@ jobs:
         run: |   
              $xmlfile = [xml](gc -Path ".\test.config")
              $xmlfile
+             git checkout test1
              git branch -D test1
              $connectionstring = $xmlfile.configuration."idntenant-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
              $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
