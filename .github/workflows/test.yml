@@ -40,7 +40,7 @@ jobs:
         uses: dawidd6/action-delete-branch@v3
         with:
           github_token: ${{github.token}}
-          branches: test1,test2
+          #branches: test1,test2
           prefix: te
     
       - name : Get KeyValut Values 
