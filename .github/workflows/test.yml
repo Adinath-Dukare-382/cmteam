@@ -43,14 +43,14 @@ jobs:
 #           branches: test_*
 #           #prefix: te
     
-      - name : Get KeyValut Values 
-        shell: pwsh          
-        run: |   
-             $xmlfile = [xml](gc -Path ".\test.config")
-             $xmlfile
-             git checkout test1
-             git branch -D test1
-             $connectionstring = $xmlfile.configuration."idntenant-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
-             $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
-             write-host $connectionstring
-             write-host $connectionstring1
+#       - name : Get KeyValut Values 
+#         shell: pwsh          
+#         run: |   
+#              $xmlfile = [xml](gc -Path ".\test.config")
+#              $xmlfile
+#              git checkout test1
+#              git branch -D test1
+#              $connectionstring = $xmlfile.configuration."idntenant-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
+#              $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
+#              write-host $connectionstring
+#              write-host $connectionstring1
