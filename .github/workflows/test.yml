@@ -36,12 +36,12 @@ jobs:
 #          token: ${{ secrets.github_token }}
 #          prefix: client
          
-      - name: Delete pr-* branches
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{github.token}}
-          branches: test_*
-          #prefix: te
+#       - name: Delete pr-* branches
+#         uses: dawidd6/action-delete-branch@v3
+#         with:
+#           github_token: ${{github.token}}
+#           branches: test_*
+#           #prefix: te
     
       - name : Get KeyValut Values 
         shell: pwsh          
