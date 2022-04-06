@@ -31,7 +31,7 @@ jobs:
         if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
         uses: SvanBoxel/delete-merged-branch@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTODELETE_BRANCH_TOKEN }}
         with:
           branches: "!development, !main"
       - run: echo ${{ inputs.username2 }}
