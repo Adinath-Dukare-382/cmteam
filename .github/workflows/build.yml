@@ -46,6 +46,7 @@ jobs:
                echo "::set-output name=DBServer2::$DB_SERVER2"
                
   example_job:
+    needs: OnPremDeployment
     runs-on: self-hosted
     steps:
       - run: echo ${{ inputs.username2 }}
