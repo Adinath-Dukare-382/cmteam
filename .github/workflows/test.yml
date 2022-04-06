@@ -29,7 +29,6 @@ jobs:
       - run: |
           echo "Adinath"
           echo "Dukare"
-          echo ${{ secrets.AZURE_TOKEN }}
           
       - name : Get KeyValut Values 
         id: keyVaultValues
