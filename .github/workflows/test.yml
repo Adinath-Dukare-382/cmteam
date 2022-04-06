@@ -9,9 +9,13 @@ on:
       username2:
         required: true
         type: string
+      username3:
+        required: true
+        type: string
+        default: lenovo
 
 jobs:
   example_job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ inputs.username1 }}
+      - run: echo ${{ inputs.username3 }}
