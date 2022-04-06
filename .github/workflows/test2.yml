@@ -23,7 +23,7 @@ jobs:
     steps:
       - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
-      - run: echo ${{ needs.HC_workflow.outputs.DBServer1 }}
+      - run: echo ${{ needs.example_job.outputs.DBServer1 }}
       - run: |
           echo "Adinath"
           echo "Dukare"
