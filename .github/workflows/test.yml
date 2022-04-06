@@ -24,7 +24,7 @@ jobs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
       DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
     steps:
-      - run: echo ${{ inputs.username3 }}
+      - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: echo ${{ secrets.AZURE_TOKEN }}
       - run: |
