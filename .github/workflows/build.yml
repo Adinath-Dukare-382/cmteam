@@ -27,6 +27,11 @@ jobs:
       - name: checkout action files
         uses: actions/checkout@v2 
       - run: echo ${{ inputs.username1 }}
+      - name: Delete merged branch 
+        if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTODELETE_BRANCH_TOKEN }}
       - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: |
