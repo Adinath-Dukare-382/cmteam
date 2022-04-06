@@ -31,15 +31,13 @@ jobs:
           echo "Dukare"
           
       - name : Get KeyValut Values 
-        id: keyVaultValues
-        shell: pwsh          
+        id: keyVaultValues          
         run: |                
                $DB_SERVER1 = "realme1"  
                echo "::set-output name=DBServer1::$DB_SERVER1"
                
       - name : Get Configuration Values for Gateway Update
-        id: keyVaultValues2
-        shell: pwsh          
+        id: keyVaultValues2        
         run: | 
                $DB_SERVER2 = "realme2"  
                echo "::set-output name=DBServer2::$DB_SERVER2"
