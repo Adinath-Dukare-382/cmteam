@@ -26,7 +26,6 @@ jobs:
     steps:
       - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
-      - run: echo ${{ secrets.AZURE_TOKEN }}
       - run: |
           echo "Adinath"
           echo "Dukare"
