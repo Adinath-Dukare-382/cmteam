@@ -24,6 +24,8 @@ jobs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
       DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
     steps:
+      - name: checkout action files
+        uses: actions/checkout@v2 
       - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: |
