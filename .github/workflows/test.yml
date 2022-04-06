@@ -1,56 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+name: Reusable workflow example
 
-name: test-poh-873a229c-4bc2-4efc-9fb1-2671c36721e5-entsvr-gusdnuzbcgnsxhincx-ausnsjagcx
-
-# Controls when the workflow will run
 on:
-  workflow_dispatch:
   workflow_call:
+    inputs:
+      username1:
+        required: true
+        type: string
+      username2:
+        required: true
+        type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single jobcalled "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: [ self-hosted, runner1 ]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  example_job:
+    name: Pass input and secrets to my-action
+    runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo testing
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        if: ${{ false }}
-        run: |
-          echo testing purpose
-
-#       - name: Generate build number
-#         id: buildnumber
-#         uses: einaregilsson/build-number@v3 
-#         with:
-#          token: ${{ secrets.github_token }}
-#          prefix: client
-         
-#       - name: Delete pr-* branches
-#         uses: dawidd6/action-delete-branch@v3
-#         with:
-#           github_token: ${{github.token}}
-#           branches: test_*
-#           #prefix: te
-    
-#       - name : Get KeyValut Values 
-#         shell: pwsh          
-#         run: |   
-#              $xmlfile = [xml](gc -Path ".\test.config")
-#              $xmlfile
-#              git checkout test1
-#              git branch -D test1
-#              $connectionstring = $xmlfile.configuration."idntenant-60cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
-#              $connectionstring1 = $xmlfile.configuration."idntenantsinfo-70cd3ccc-bae8-eb11-a7ad-281878dd285c".add.POHTenantId
-#              write-host $connectionstring
-#              write-host $connectionstring1
+      - run: echo ${{ inputs.username1 }}
