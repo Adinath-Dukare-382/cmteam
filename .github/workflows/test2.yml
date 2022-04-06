@@ -19,7 +19,7 @@ on:
 
 jobs:
   example_job:
-    runs-on: [self-hosted, runner1]
+    runs-on: self-hosted
     steps:
       - run: echo ${{ inputs.username3 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
