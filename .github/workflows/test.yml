@@ -20,6 +20,9 @@ on:
 jobs:
   example_job:
     runs-on: ubuntu-latest
+    outputs:
+      DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
+      DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
     steps:
       - run: echo ${{ inputs.username3 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
@@ -28,3 +31,17 @@ jobs:
           echo "Adinath"
           echo "Dukare"
           echo ${{ secrets.AZURE_TOKEN }}
+          
+      - name : Get KeyValut Values 
+        id: keyVaultValues
+        shell: pwsh          
+        run: |                
+               $DB_SERVER1 = "realme1"  
+               echo "::set-output name=DBServer1::$DB_SERVER1"
+               
+      - name : Get Configuration Values for Gateway Update
+        id: keyVaultValues2
+        shell: pwsh          
+        run: | 
+               $DB_SERVER2 = "realme2"  
+               echo "::set-output name=DBServer2::$DB_SERVER2"
