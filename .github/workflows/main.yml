@@ -11,14 +11,14 @@ on:
   workflow_call:
 jobs:
   HC_workflow:
-      uses: ./.github/workflows/test.yml
+      uses: ./.github/workflows/build.yml
       with:
           username1: "adinath"
           username2: "dukare"
           
-  HWS_workflow:
-      needs: [ HC_workflow ]
-      uses: ./.github/workflows/test2.yml
-      with:
-          username1: "adinath"
-          username2: ${{ needs.example_job1.outputs.DBServer1 }}
+#   HWS_workflow:
+#       needs: [ HC_workflow ]
+#       uses: ./.github/workflows/test2.yml
+#       with:
+#           username1: "adinath"
+#           username2: ${{ needs.example_job1.outputs.DBServer1 }}
