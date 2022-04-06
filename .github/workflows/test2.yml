@@ -21,7 +21,7 @@ jobs:
   example_job:
     runs-on: self-hosted
     steps:
-      - run: echo ${{ inputs.username3 }}
+      - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: echo ${{ needs.HC_workflow.outputs.DBServer1 }}
       - run: echo ${{ secrets.AZURE_TOKEN }}
