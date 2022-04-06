@@ -7,5 +7,5 @@ jobs:
   HC_workflow:
       uses: ./.github/workflows/test.yml
       with:
-          username: "adinath"
-          token: "dukare"
+          username1: "adinath"
+          username2: "dukare"
