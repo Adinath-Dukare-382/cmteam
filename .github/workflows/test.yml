@@ -18,7 +18,7 @@ on:
         type: string
 
 jobs:
-  example_job:
+  example_job1:
     runs-on: self-hosted
     outputs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
