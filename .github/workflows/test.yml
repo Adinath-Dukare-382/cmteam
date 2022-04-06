@@ -1,6 +1,13 @@
 name: Reusable workflow example
 
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning' 
+        type: string
   workflow_call:
     inputs:
       username1:
