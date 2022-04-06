@@ -19,7 +19,7 @@ on:
 
 jobs:
   example_job:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner1]
     outputs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
       DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
