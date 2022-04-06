@@ -14,7 +14,7 @@ jobs:
       uses: ./.github/workflows/test.yml
       with:
           username1: "adinath"
-          username2: "dukare"
+          username2: ${{ needs.example_job1.outputs.DBServer1 }}
           
   HWS_workflow:
       needs: [ HC_workflow ]
