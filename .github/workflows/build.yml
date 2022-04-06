@@ -32,6 +32,8 @@ jobs:
         uses: SvanBoxel/delete-merged-branch@main
         env:
           GITHUB_TOKEN: ${{ secrets.AUTODELETE_BRANCH_TOKEN }}
+        with:
+          branches: "!development, !main"
       - run: echo ${{ inputs.username2 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: |
