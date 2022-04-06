@@ -16,6 +16,9 @@ on:
       username2:
         required: true
         type: string
+    secrets:
+      envPAT:
+        required: true
 
 jobs:
   OnPremDeployment:
@@ -31,7 +34,7 @@ jobs:
         if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
         uses: SvanBoxel/delete-merged-branch@main
         env:
-          GITHUB_TOKEN: ${{ secrets.AUTODELETE_BRANCH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.envPAT }}
         with:
           branches: "!development, !main"
       - run: echo ${{ inputs.username2 }}
