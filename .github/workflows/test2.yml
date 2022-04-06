@@ -23,7 +23,7 @@ jobs:
     steps:
       - run: echo ${{ inputs.username3 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
-      - run: echo ${{ needs.example_job.outputs.DBServer1 }}
+      - run: echo ${{ needs.HC_workflow / example_job.outputs.DBServer1 }}
       - run: echo ${{ secrets.AZURE_TOKEN }}
       - run: |
           echo "Adinath"
