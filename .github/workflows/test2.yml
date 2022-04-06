@@ -19,11 +19,11 @@ on:
 
 jobs:
   example_job:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner1]
     steps:
       - run: echo ${{ inputs.username3 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
-      - run: echo ${{ needs.HC_workflow / example_job.outputs.DBServer1 }}
+      - run: echo ${{ needs.HC_workflow.outputs.DBServer1 }}
       - run: echo ${{ secrets.AZURE_TOKEN }}
       - run: |
           echo "Adinath"
