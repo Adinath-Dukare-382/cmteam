@@ -1,0 +1,57 @@
+name: Reusable workflow example
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning' 
+        type: string
+  workflow_call:
+    inputs:
+      username1:
+        required: true
+        type: string
+      username2:
+        required: true
+        type: string
+
+jobs:
+  OnPremDeployment:
+    runs-on: self-hosted
+    outputs:
+      DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
+      DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
+    steps:
+      - name: checkout action files
+        uses: actions/checkout@v2 
+      - run: echo ${{ inputs.username1 }}
+      - run: echo ${{ inputs.username2 }}
+      - run: echo "The job was triggered by a ${{ github.event_name }} event."
+      - run: |
+          echo "Adinath"
+          echo "Dukare"
+          
+      - name : Get KeyValut Values 
+        id: keyVaultValues          
+        run: |                
+               $DB_SERVER1 = "realme1"  
+               echo "::set-output name=DBServer1::$DB_SERVER1"
+               
+      - name : Get Configuration Values for Gateway Update
+        id: keyVaultValues2        
+        run: | 
+               $DB_SERVER2 = "realme2"  
+               echo "::set-output name=DBServer2::$DB_SERVER2"
+               
+  example_job:
+    runs-on: self-hosted
+    steps:
+      - run: echo ${{ inputs.username2 }}
+      - run: echo ${{ inputs.username1 }}
+      - run: echo "The job was triggered by a ${{ github.event_name }} event."
+      - run: echo ${{ needs.OnPremDeployment.outputs.DBServer1 }}
+      - run: |
+          echo "Adinath"
+          echo "Dukare"
