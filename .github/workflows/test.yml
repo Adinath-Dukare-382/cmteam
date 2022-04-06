@@ -24,3 +24,7 @@ jobs:
       - run: echo ${{ inputs.username3 }}
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: echo ${{ secrets.AZURE_TOKEN }}
+      - run: |
+          write-host "Adinath"
+          write-host "Dukare"
+          write-host ${{ secrets.AZURE_TOKEN }}
