@@ -1,0 +1,31 @@
+name: Reusable workflow example
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning' 
+        type: string
+  workflow_call:
+    inputs:
+      username1:
+        required: true
+        type: string
+      username2:
+        required: true
+        type: string
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ inputs.username3 }}
+      - run: echo "The job was triggered by a ${{ github.event_name }} event."
+      - run: echo ${{ needs.HC_workflow.outputs.DBServer1}}
+      - run: echo ${{ secrets.AZURE_TOKEN }}
+      - run: |
+          echo "Adinath"
+          echo "Dukare"
+          echo ${{ secrets.AZURE_TOKEN }}
