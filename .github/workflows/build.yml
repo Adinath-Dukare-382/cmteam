@@ -17,7 +17,7 @@ on:
         required: true
         type: string
     secrets:
-      token:
+      RELAME:
         required: true
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
         if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
         uses: SvanBoxel/delete-merged-branch@main
         env:
-          GITHUB_TOKEN: ${{ secrets.token }}
+          GITHUB_TOKEN: ${{ secrets.RELAME }}
         with:
           branches: "!development, !main"
       - run: echo ${{ inputs.username2 }}
