@@ -23,10 +23,10 @@ jobs:
   Job:
       uses: ./.github/workflows/build.yml
       with:
-          username1: ${env:IDNTenantID}
+          username1: ${env.IDNTenantID}
           username2: "$env:IDNTenantID"
           username3: $env.USER
-          username4: ${{ github.env.IDNTenantID }}
+          username4: ${IDNTenantID}
       secrets:
           RELAME: ${{ secrets.RELAME }}
       
