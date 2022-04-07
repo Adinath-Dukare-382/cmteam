@@ -19,6 +19,9 @@ on:
       username3:
         required: true
         type: string
+      username4:
+        required: true
+        type: string
     secrets:
       RELAME:
         required: true
@@ -33,6 +36,7 @@ jobs:
       - name: checkout action files
         uses: actions/checkout@v2 
       - run: echo ${{ inputs.username1 }}
+      - run: echo ${{ inputs.username4 }}
       - name: Delete merged branch 
         if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
         uses: SvanBoxel/delete-merged-branch@main
