@@ -17,16 +17,16 @@ on:
   workflow_call:
   
 env:
-  user: "thinkpad"
+  IDNTenantID: "thinkpad"
   
 jobs:
   Job:
       uses: ./.github/workflows/build.yml
       with:
-          username1: $env.USER
-          username2: "dukare"
+          username1: $env.IDNTenantID
+          username2: "${{ envIDNTenantID}}"
           username3: $env.USER
-          username4: $USER
+          username4: $IDNTenantID
       secrets:
           RELAME: ${{ secrets.RELAME }}
       
