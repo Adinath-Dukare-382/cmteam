@@ -22,7 +22,7 @@ jobs:
           username1: "adinath"
           username2: "dukare"
       secrets:
-          token: ${{ secrets.REALME }}
+          token: ${{ secrets.RELAME }}
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
