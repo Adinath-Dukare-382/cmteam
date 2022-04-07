@@ -24,6 +24,14 @@ jobs:
           username3: "realme"
       secrets:
           RELAME: ${{ secrets.RELAME }}
+  Job2:
+      uses: ./.github/workflows/build.yml
+      with:
+          username1: "adinath"
+          username2: "dukare"
+          username3: "realme"
+      secrets:
+          RELAME: ${{ secrets.RELAME }}
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
