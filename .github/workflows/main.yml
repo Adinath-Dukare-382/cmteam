@@ -21,7 +21,8 @@ jobs:
       with:
           username1: "adinath"
           username2: "dukare"
-          envPAT: ${{ secrets.AUTODELETE_GITHUB_TOKEN }}
+      secrets:
+          AUTODELETE_GITHUB_TOKEN: ${{ secrets.AUTODELETE_GITHUB_TOKEN }}
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
