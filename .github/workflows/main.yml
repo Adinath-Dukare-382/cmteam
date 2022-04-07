@@ -22,7 +22,7 @@ jobs:
           username1: "adinath"
           username2: "dukare"
       secrets:
-          AUTODELETE_GITHUB_TOKEN: ${{ secrets.AUTODELETE_GITHUB_TOKEN }}
+          AUTODELETE_GITHUB_TOKEN: "${{ secrets.AUTODELETE_GITHUB_TOKEN }}"
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
