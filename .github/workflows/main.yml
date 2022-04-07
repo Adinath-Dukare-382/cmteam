@@ -22,7 +22,7 @@ jobs:
           username1: "adinath"
           username2: "dukare"
       secrets:
-          token: ${{ secrets.TEST_TOKEN }}
+          token: ${{ secrets.REALME }}
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
