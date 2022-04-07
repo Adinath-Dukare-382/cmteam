@@ -15,8 +15,9 @@ on:
         default: 'warning' 
         type: string
   workflow_call:
+  
 env:
-  var1: "thinkpad"
+  user: "thinkpad"
   
 jobs:
   Job:
@@ -24,8 +25,8 @@ jobs:
       with:
           username1: "adinath"
           username2: "dukare"
-          username3: "realme"
-          username4: "$var1"
+          username3: $env.USER
+          username4: "$env.user"
       secrets:
           RELAME: ${{ secrets.RELAME }}
       
