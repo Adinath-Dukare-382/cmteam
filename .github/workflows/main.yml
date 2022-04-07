@@ -17,6 +17,7 @@ on:
   workflow_call:
 env:
   var1: "thinkpad"
+  
 jobs:
   Job:
       uses: ./.github/workflows/build.yml
@@ -24,9 +25,10 @@ jobs:
           username1: "adinath"
           username2: "dukare"
           username3: "realme"
-          username4: ${{ var1 }}
+          username4: "${{ env.var1 }}"
       secrets:
           RELAME: ${{ secrets.RELAME }}
+      
 #   Job2:
 #       uses: ./.github/workflows/build.yml
 #       with:
