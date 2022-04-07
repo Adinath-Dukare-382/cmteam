@@ -16,6 +16,9 @@ on:
       username2:
         required: true
         type: string
+      username3:
+        required: true
+        type: string
     secrets:
       RELAME:
         required: true
