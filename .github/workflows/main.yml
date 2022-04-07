@@ -22,7 +22,7 @@ jobs:
           username1: "adinath"
           username2: "dukare"
       secrets:
-          token: ${{ secrets.AUTODELETE_GITHUB_TOKEN }}
+          envPAT: ${{ secrets.AUTODELETE_GITHUB_TOKEN }}
           
 #   HWS_workflow:
 #       needs: [ HC_workflow ]
