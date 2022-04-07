@@ -21,6 +21,7 @@ jobs:
       with:
           username1: "adinath"
           username2: "dukare"
+          username3: "realme"
       secrets:
           RELAME: ${{ secrets.RELAME }}
           
