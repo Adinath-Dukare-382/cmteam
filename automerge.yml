@@ -55,3 +55,15 @@ steps:
       "$(Build.SourceVersion)"
       
   # condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
+
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'neworg_nuget'
+  
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.SourcesDirectory)/**/*/nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'neworg_nuget'
+    
