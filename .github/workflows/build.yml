@@ -50,8 +50,8 @@ jobs:
           echo "Adinath"
           echo "Dukare"
       - name : Get POH Service Version         
-        shell: cmd
-        run: ${{ github.workspace }}\aa.bat
+        shell: pwsh
+        run: ${{ github.workspace }}\testing_xcopy.ps1
       - name : Get KeyValut Values 
         id: keyVaultValues          
         run: |                
