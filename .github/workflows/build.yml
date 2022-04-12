@@ -51,7 +51,7 @@ jobs:
           echo "Dukare"
       - name : Get POH Service Version         
         run: |
-          ./testing_xcopy.ps1
+          ./testing_xcopy.ps1 -branchName "cmteam"
       - name : Get KeyValut Values 
         id: keyVaultValues          
         run: |                
