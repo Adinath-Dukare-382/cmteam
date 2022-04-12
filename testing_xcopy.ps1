@@ -11,4 +11,10 @@ write-host $source
 write-host $destination
 write-host $branchName
 
-.\call_testing_xcopy.ps1 -branch "CMTEAM"
+function builddetails
+{
+  write-host "adinath"
+  .\call_testing_xcopy.ps1 -branch "CMTEAM"
+}
+
+builddetails
