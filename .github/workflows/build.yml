@@ -52,7 +52,7 @@ jobs:
       - name : Get POH Service Version         
         shell: bash
         run: |
-          ${{ github.workspace }}/aa.bat
+          ${{ github.workspace }}\aa.bat
           echo "Adinath"
           echo "Dukare"
       - name : Get KeyValut Values 
