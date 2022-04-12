@@ -11,4 +11,4 @@ write-host $source
 write-host $destination
 write-host $branchName
 
-call_testing_xcopy.ps1 -branch "CMTEAM"
+.\call_testing_xcopy.ps1 -branch "CMTEAM"
