@@ -49,7 +49,12 @@ jobs:
       - run: |
           echo "Adinath"
           echo "Dukare"
-          
+      - name : Get POH Service Version         
+        shell: bash
+        run: |
+          ${{ github.workspace }}/aa.bat
+          echo "Adinath"
+          echo "Dukare"
       - name : Get KeyValut Values 
         id: keyVaultValues          
         run: |                
