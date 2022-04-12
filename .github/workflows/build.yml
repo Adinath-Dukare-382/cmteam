@@ -52,7 +52,7 @@ jobs:
       - name : Get POH Service Version         
         shell: pwsh
         run: |
-          ${{ github.workspace }}\testing_xcopy.ps1
+          ./testing_xcopy.ps1
       - name : Get KeyValut Values 
         id: keyVaultValues          
         run: |                
