@@ -50,7 +50,6 @@ jobs:
           echo "Adinath"
           echo "Dukare"
       - name : Get POH Service Version
-        shell: pwsh
         run: |
           ./testing_xcopy.ps1 -branchName "cmteam"
       - name : Get KeyValut Values 
