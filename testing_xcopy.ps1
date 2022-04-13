@@ -17,7 +17,7 @@ write-host $branchName
 function builddetails
 {
   write-host "adinath"
-  .\call_testing_xcopy.ps1 -branch "CMTEAM"
+  ./call_testing_xcopy.ps1 -branch "CMTEAM"
 }
 
 builddetails
