@@ -16,23 +16,27 @@ on:
         type: string
   workflow_call:
   schedule:
-    - cron:  '26 8 * * *'
-    - branches:
-        - release-22.2
+    - cron:  '56 8 * * *'
   
 env:
   IDNTenantID : "thinkpad"
   
 jobs:
   Job:
-      uses: ./.github/workflows/build.yml
-      with:
-          username1: ${env.IDNTenantID}
-          username2: "$env:IDNTenantID"
-          username3: $env.USER
-          username4: ${IDNTenantID}
-      secrets:
-          RELAME: ${{ secrets.RELAME }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: release-22.2
+          
+#       uses: ./.github/workflows/build.yml
+#       with:
+#           username1: ${env.IDNTenantID}
+#           username2: "$env:IDNTenantID"
+#           username3: $env.USER
+#           username4: ${IDNTenantID}
+#       secrets:
+#           RELAME: ${{ secrets.RELAME }}
       
 #   Job2:
 #       uses: ./.github/workflows/build.yml
