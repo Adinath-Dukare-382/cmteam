@@ -15,6 +15,10 @@ on:
         default: 'warning' 
         type: string
   workflow_call:
+  schedule:
+    - cron:  '26 8 * * *'
+    - branches:
+        - release-22.2
   
 env:
   IDNTenantID : "thinkpad"
