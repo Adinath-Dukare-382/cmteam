@@ -1,6 +1,11 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '3.txt'
   pull_request:
     branches: 
       - main
@@ -15,10 +20,10 @@ on:
         default: 'warning' 
         type: string
   workflow_call:
-  schedule:
-    - cron:  '26 8 * * *'
-    - branches:
-        - release-22.2
+#   schedule:
+#     - cron:  '26 8 * * *'
+#     - branches:
+#         - release-22.2
   
 env:
   IDNTenantID : "thinkpad"
