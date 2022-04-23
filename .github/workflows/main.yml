@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/*.yml'
+      - 'Packages/poh-services-metadata.json'
   pull_request:
     branches: 
       - main
