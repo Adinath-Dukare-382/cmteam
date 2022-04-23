@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - '3.txt'
+      - '.github\workflows\test.yml'
   pull_request:
     branches: 
       - main
