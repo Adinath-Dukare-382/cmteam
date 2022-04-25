@@ -1,11 +1,11 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'Packages/poh-services-metadata.json'
+#   push:
+#     branches:
+#       - 'main'
+#     paths:
+#       - 'Packages/poh-services-metadata.json'
   pull_request:
     branches: 
       - main
@@ -32,10 +32,10 @@ jobs:
   Job:
       uses: ./.github/workflows/build.yml
       with:
-          username1: ${env.IDNTenantID}
+          username1: "thinkpad"
           username2: "$env:IDNTenantID"
-          username3: $env.USER
-          username4: ${IDNTenantID}
+          username3: "thinkpad"
+          username4: "thinkpad"
       secrets:
           RELAME: ${{ secrets.RELAME }}
       
