@@ -28,11 +28,11 @@
       "GraphQL": {
         "Artifact-Name": "graphql",
         "WebAPI-Name": "GraphQL",
-        "Package-Version": "1.0.0.14",
+        "Package-Version": "1.0.0.15",
         "License": "",
         "Server": "HWS",
         "File-Version": "POHGraphQL.Server",
-        "Artifact-Version": "1.0.14",
+        "Artifact-Version": "1.0.15",
         "AppPool-Name": "GraphQLAppPool",
         "Package-Name": "GraphQL.zip"
       }
