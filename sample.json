@@ -1,0 +1,411 @@
+{
+  "MetadataJsonVersion": "1.0.0.18",
+  "Feed": "POH22.1-Release",
+  "Scope": "project",
+  "Installer": {
+    "POHSql": {
+      "Package-Name": "POH-Bus-Services-SQL",
+      "Artifact-Name": "pohsql",
+      "Artifact-Version": "1.0.7"
+    }
+  },
+  "Name": "POHRelease",
+  "Project": "Platform of health",
+  "Organization": "https://dev.azure.com/transaction-systems/",
+  "Services": {
+    "POHUXServices": {
+      "UserPreferenceWebAPI": {
+        "Artifact-Name": "userpreferencewebapi",
+        "WebAPI-Name": "UserPreferenceWebAPI",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.UserPreference.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "UserPreferenceWebApiAppPool",
+        "Package-Name": "UserPreferenceWebAPI.zip"
+      },
+      "GraphQL": {
+        "Artifact-Name": "graphql",
+        "WebAPI-Name": "GraphQL",
+        "Package-Version": "1.0.0.14",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POHGraphQL.Server",
+        "Artifact-Version": "1.0.14",
+        "AppPool-Name": "GraphQLAppPool",
+        "Package-Name": "GraphQL.zip"
+      }
+    },
+    "POHCoreServices": {
+      "AppConfigAPI": {
+        "Artifact-Name": "appconfigapi",
+        "WebAPI-Name": "AppConfigAPI",
+        "Package-Version": "1.0.0.6",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.Infrastructure.Configuration.WebAPI",
+        "Artifact-Version": "1.0.6",
+        "AppPool-Name": "POHConfigAPIAppPool",
+        "Package-Name": "AppConfigAPI.zip"
+      },
+      "POHBackgroundService": {
+        "Artifact-Name": "pohbackgroundservice",
+        "WebAPI-Name": "POHBackgroundService",
+        "Package-Version": "1.0.0.4",
+        "License": "",
+        "Server": "HC",
+        "File-Version": "POHBackgroundService.Service",
+        "Artifact-Version": "1.0.4",
+        "AppPool-Name": "POHBackgroundServiceAppPool",
+        "Package-Name": "POHBackgroundService.zip"
+      },
+      "HealthMonitoringWebApi": {
+        "Artifact-Name": "healthmonitoringwebapi",
+        "WebAPI-Name": "HealthMonitoringWebApi",
+        "Package-Version": "1.0.0.5",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.Infrastructure.HealthMonitoring.WebAPI",
+        "Artifact-Version": "1.0.5",
+        "AppPool-Name": "HealthMonitoringWebApiAppPool",
+        "Package-Name": "HealthMonitoringWebApi.zip"
+      }
+    },
+    "POHBusinessServices": {
+      "EnterpriseConfigWebApi": {
+        "Artifact-Name": "enterpriseconfigwebapi",
+        "WebAPI-Name": "EnterpriseConfigWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "EnterpriseConfig.API",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "EnterpriseConfigWebApiAppPool",
+        "Package-Name": "EnterpriseConfigWebApi.zip"
+      },
+      "BinaryWebApi": {
+        "Artifact-Name": "binarywebapi",
+        "WebAPI-Name": "BinaryWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Binary.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "BinaryWebApiAppPool",
+        "Package-Name": "BinaryWebApi.zip"
+      },
+      "PractitionerRoleWebApi": {
+        "Artifact-Name": "practitionerrolewebapi",
+        "WebAPI-Name": "PractitionerRoleWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.PractitionerRole.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "PractitionerRoleWebApiAppPool",
+        "Package-Name": "PractitionerRoleWebApi.zip"
+      },
+      "ConditionWebApi": {
+        "Artifact-Name": "conditionwebapi",
+        "WebAPI-Name": "ConditionWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Condition.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "ConditionWebApiAppPool",
+        "Package-Name": "ConditionWebApi.zip"
+      },
+      "MedicationWebApi": {
+        "Artifact-Name": "medicationwebapi",
+        "WebAPI-Name": "MedicationWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Medication.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "MedicationWebApiAppPool",
+        "Package-Name": "MedicationWebApi.zip"
+      },
+      "BulkRequestWebApi": {
+        "Artifact-Name": "bulkrequestwebapi",
+        "WebAPI-Name": "BulkRequestWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.Fhir.BulkRequest.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "BulkRequestWebApiAppPool",
+        "Package-Name": "BulkRequestWebApi.zip"
+      },
+      "OrganizationWebApi": {
+        "Artifact-Name": "organizationwebapi",
+        "WebAPI-Name": "OrganizationWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Organization.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "OrganizationWebApiAppPool",
+        "Package-Name": "OrganizationWebApi.zip"
+      },
+      "CareTeamWebApi": {
+        "Artifact-Name": "careteamwebapi",
+        "WebAPI-Name": "CareTeamWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.CareTeam.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "CareTeamWebApiAppPool",
+        "Package-Name": "CareTeamWebApi.zip"
+      },
+      "PatientWebApi": {
+        "Artifact-Name": "patientwebapi",
+        "WebAPI-Name": "PatientWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Patient.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "PatientWebApiAppPool",
+        "Package-Name": "PatientWebApi.zip"
+      },
+      "MedicationRequestWebApi": {
+        "Artifact-Name": "medicationrequestwebapi",
+        "WebAPI-Name": "MedicationRequestWebApi",
+        "Package-Version": "1.0.0.3",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.MedRequest.WebApi",
+        "Artifact-Version": "1.0.3",
+        "AppPool-Name": "MedicationRequestWebApiAppPool",
+        "Package-Name": "MedicationRequestWebApi.zip"
+      },
+      "ObservationWebApi": {
+        "Artifact-Name": "observationwebapi",
+        "WebAPI-Name": "ObservationWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Observation.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "ObservationWebApiAppPool",
+        "Package-Name": "ObservationWebApi.zip"
+      },
+      "UserManagementWebAPI": {
+        "Artifact-Name": "usermanagementwebapi",
+        "WebAPI-Name": "UserManagementWebAPI",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "UserManagement.API",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "UserManagementWebApiAppPool",
+        "Package-Name": "UserManagementWebAPI.zip"
+      },
+      "DiagnosticReportWebApi": {
+        "Artifact-Name": "diagnosticreportwebapi",
+        "WebAPI-Name": "DiagnosticReportWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.DiagnosticReport.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "DiagnosticReportWebApiAppPool",
+        "Package-Name": "DiagnosticReportWebApi.zip"
+      },
+      "GoalWebApi": {
+        "Artifact-Name": "goalwebapi",
+        "WebAPI-Name": "GoalWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Goal.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "GoalWebApiAppPool",
+        "Package-Name": "GoalWebApi.zip"
+      },
+      "GroupWebApi": {
+        "Artifact-Name": "groupwebapi",
+        "WebAPI-Name": "GroupWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.Fhir.Group.API",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "GroupWebApiAppPool",
+        "Package-Name": "GroupWebApi.zip"
+      },
+      "DocumentRefWebApi": {
+        "Artifact-Name": "documentrefwebapi",
+        "WebAPI-Name": "DocumentRefWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "SXA.ClinDoc.ClinDocWebAPI",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "DocumentRefWebApiAppPool",
+        "Package-Name": "DocumentRefWebApi.zip"
+      },
+      "ProcedureWebApi": {
+        "Artifact-Name": "procedurewebapi",
+        "WebAPI-Name": "ProcedureWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Procedure.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "ProcedureWebApiAppPool",
+        "Package-Name": "ProcedureWebApi.zip"
+      },
+      "DeviceWebApi": {
+        "Artifact-Name": "devicewebapi",
+        "WebAPI-Name": "DeviceWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Device.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "DeviceWebApiAppPool",
+        "Package-Name": "DeviceWebApi.zip"
+      },
+      "RelatedPersonWebAPI": {
+        "Artifact-Name": "relatedpersonwebapi",
+        "WebAPI-Name": "RelatedPersonWebAPI",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.RelatedPerson.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "RelatedPersonWebApiAppPool",
+        "Package-Name": "RelatedPersonWebAPI.zip"
+      },
+      "InfrastructureWebApi": {
+        "Artifact-Name": "infrastructurewebapi",
+        "WebAPI-Name": "InfrastructureWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Infrastructure.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "InfrastructureWebApiAppPool",
+        "Package-Name": "InfrastructureWebApi.zip"
+      },
+      "AllergyIntoleranceWebApi": {
+        "Artifact-Name": "allergyintolerancewebapi",
+        "WebAPI-Name": "AllergyIntoleranceWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.AllergyIntolerance.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "AllergyIntoleranceWebApiAppPool",
+        "Package-Name": "AllergyIntoleranceWebApi.zip"
+      },
+      "PractitionerWebApi": {
+        "Artifact-Name": "practitionerwebapi",
+        "WebAPI-Name": "PractitionerWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Practitioner.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "PractitionerWebApiAppPool",
+        "Package-Name": "PractitionerWebApi.zip"
+      },
+      "ImmunizationWebApi": {
+        "Artifact-Name": "immunizationwebapi",
+        "WebAPI-Name": "ImmunizationWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Immunization.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "ImmunizationWebApiAppPool",
+        "Package-Name": "ImmunizationWebApi.zip"
+      },
+      "OrderInfrastructureWebApi": {
+        "Artifact-Name": "orderinfrastructurewebapi",
+        "WebAPI-Name": "OrderInfrastructureWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "OrderInfrastructure.API",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "OrderInfrastructureWebApiAppPool",
+        "Package-Name": "OrderInfrastructureWebApi.zip"
+      },
+      "LocationWebApi": {
+        "Artifact-Name": "locationwebapi",
+        "WebAPI-Name": "LocationWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.Location.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "LocationWebApiAppPool",
+        "Package-Name": "LocationWebApi.zip"
+      },
+      "CarePlanWebApi": {
+        "Artifact-Name": "careplanwebapi",
+        "WebAPI-Name": "CarePlanWebApi",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Fhir.CarePlan.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "CarePlanWebApiAppPool",
+        "Package-Name": "CarePlanWebApi.zip"
+      },
+      "EncounterWebAPI": {
+        "Artifact-Name": "encounterwebapi",
+        "WebAPI-Name": "EncounterWebAPI",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "Sunrise.Encounter.WebApi",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "EncounterWebApiAppPool",
+        "Package-Name": "EncounterWebAPI.zip"
+      },
+      "ApiDocumentation": {
+        "Artifact-Name": "apidocumentation",
+        "WebAPI-Name": "ApiDocumentation",
+        "Package-Version": "1.0.0.2",
+        "License": "",
+        "Server": "HWS",
+        "File-Version": "POH.ApiDocumentation.Web",
+        "Artifact-Version": "1.0.2",
+        "AppPool-Name": "ApiDocumentationAppPool",
+        "Package-Name": "ApiDocumentation.zip"
+      }
+    },
+    "HIMServices": {
+      "HIMReportWeb": {
+        "Artifact-Name": "himreportweb",
+        "WebAPI-Name": "HIMReportWeb",
+        "Package-Version": "1.0.0.72",
+        "License": "",
+        "Server": "HC",
+        "File-Version": "SXA.HIM.Core.Report.Dashboard",
+        "Artifact-Version": "1.0.72",
+        "AppPool-Name": "HIMReportWebAppPool",
+        "Package-Name": "HIMReportWeb.zip"
+      },
+      "HIMReportDataSync": {
+        "Artifact-Name": "himreportdatasync",
+        "WebAPI-Name": "HIMReportDataSync",
+        "Package-Version": "1.0.0.104",
+        "License": "",
+        "Server": "HC",
+        "File-Version": "",
+        "Artifact-Version": "1.0.104",
+        "AppPool-Name": "HIMReportDataSyncAppPool",
+        "Package-Name": "HIMReportDataSync.zip"
+      }
+    }
+  },
+  "Release": "1.0.0"
+}
