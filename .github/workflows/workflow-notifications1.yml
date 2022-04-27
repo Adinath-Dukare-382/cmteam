@@ -2,7 +2,7 @@ name: Workflow Notifications
 
 on:
   workflow_run:
-    workflows: [ "CI Build", "Production Deploy" ]
+    workflows: [ "CI", "testing-poh-873a229c-4bc2-4efc-9fb1-2671c36721e5-entsvr-testing-ausnsjagcx" ]
 
 jobs:
   notifications:
