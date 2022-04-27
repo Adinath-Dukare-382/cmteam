@@ -1,0 +1,12 @@
+workflows:
+- workflow: CI
+  notifications:
+  - email: adinath.dukare@allscripts.com
+    filter: [ failed ]
+
+- workflow: testing-poh-873a229c-4bc2-4efc-9fb1-2671c36721e5-entsvr-testing-ausnsjagcx
+  notifications:
+  - email: adinath.dukare@allscripts.com
+    filter: [ succeeded ]
+#   - email: rickandmorty@rickiverse.com
+#     filter: [ failed ]
