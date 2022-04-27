@@ -1,0 +1,14 @@
+name: Workflow Notifications
+
+on:
+  workflow_run:
+    workflows: [ "CI Build", "Production Deploy" ]
+
+jobs:
+  notifications:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: octogeeks/send-workflow-notifications@v1
+      with:
+        configuration: ./.github/workflow-notifications.yml
