@@ -37,6 +37,10 @@ jobs:
         uses: actions/checkout@v2 
       - run: echo ${{ inputs.username1 }}
       - run: echo ${{ inputs.username4 }}
+      - run: echo ${{ GITHUB_REF_NAME }}
+      - run: echo ${{ GITHUB_REF }}
+      - run: echo ${{ github.ref_name }}
+      - run: echo ${{ github.ref_name }}
       - name: Delete merged branch 
         if: ( startsWith(github.event.pull_request.head.ref, 'feature_') == true || startsWith(github.event.pull_request.head.ref, 'user') == true ) && github.event.pull_request.merged == true
         uses: SvanBoxel/delete-merged-branch@main
