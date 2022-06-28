@@ -28,7 +28,7 @@ on:
 
 jobs:
   OnPremDeployment:
-    runs-on: self-hosted
+    runs-on: test1
     outputs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
       DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
@@ -68,7 +68,7 @@ jobs:
                
   example_job:
     needs: OnPremDeployment
-    runs-on: self-hosted
+    runs-on: test1
     steps:
       - run: echo ${{ inputs.username2 }}
       - run: echo ${{ inputs.username1 }}
