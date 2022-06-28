@@ -35,7 +35,7 @@ jobs:
           username1: "adinath"
           username2: "dukare"
           username3: "dukare"
-          username4: $username1
+          username4: username1
       secrets:
           RELAME: ${{ secrets.RELAME }}
       
