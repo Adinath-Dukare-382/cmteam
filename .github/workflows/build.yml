@@ -28,7 +28,7 @@ on:
 
 jobs:
   OnPremDeployment:
-    runs-on: test1
+    runs-on: ubuntu-latest
     outputs:
       DBServer1: ${{ steps.keyVaultValues.outputs.DBServer1 }}
       DBServer2: ${{ steps.keyVaultValues.outputs.DBServer2 }}
@@ -68,7 +68,7 @@ jobs:
                
   example_job:
     needs: OnPremDeployment
-    runs-on: test1
+    runs-on: ubuntu-latest
     steps:
       - run: echo ${{ inputs.username2 }}
       - run: echo ${{ inputs.username1 }}
